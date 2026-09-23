@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — Preloader Section</title>
+<style>
+  body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+</style>
+</head>
+<body>
+
+<!-- ================================================================
+     SELF-CONTAINED PORTFOLIO HERO + PRELOADER SECTION
+     ================================================================ -->
+<section id="mjp-hero-section" class="mjp-hero-section" aria-label="Intro">
+
+  <!-- ---------- Loading overlay ---------- -->
+  <div id="mjp-overlay" class="mjp-overlay" aria-hidden="true">
+
+    <!-- bottom-left percentage counter -->
+    <div class="mjp-counter">
+      <span id="mjp-counter-num">0</span><span class="mjp-counter-sign">%</span>
+    </div>
+
+    <!-- center: single unified bar, 3 subtle soft dividers, 1 continuous fill -->
+    <div id="mjp-bar-wrap" class="mjp-bar-wrap" aria-hidden="true">
+      <!-- white fill — grows left-to-right via scaleX each rAF -->
+      <div class="mjp-bar-fill" id="mjp-fill-main"></div>
+      <!-- 3 subtle 1px dividers at 25 / 50 / 75% -->
+      <div class="mjp-bar-div" style="left:25%"></div>
+      <div class="mjp-bar-div" style="left:50%"></div>
+      <div class="mjp-bar-div" style="left:75%"></div>
+    </div>
+
+    <!-- SVG: hidden until morph phase; positioned identically to bar-wrap -->
+    <svg
+      id="mjp-svg"
+      class="mjp-svg"
+      viewBox="0 0 400 400"
+      preserveAspectRatio="xMidYMid meet"
+      role="img"
+      aria-hidden="true"
+    >
+      <line id="mjp-piece-1" class="mjp-piece" stroke-linecap="square"></line>
+      <line id="mjp-piece-2" class="mjp-piece" stroke-linecap="square"></line>
+      <line id="mjp-piece-3" class="mjp-piece" stroke-linecap="square"></line>
+      <line id="mjp-piece-4" class="mjp-piece" stroke-linecap="square"></line>
+    </svg>
+  </div>
+
+  <!-- ---------- Hero content revealed underneath ---------- -->
+  <div class="mjp-hero">
+    <div class="mjp-hero-inner">
+      <div class="mjp-hero-mask">
+        <h2 class="mjp-hero-heading">Your Name</h2>
+      </div>
+      <div class="mjp-hero-mask mjp-hero-mask-sub">
+        <p class="mjp-hero-sub">Placeholder tagline — swap in your real copy</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<style>
+  #mjp-hero-section {
+    --mjp-ink:       #0a0a0a;
+    --mjp-paper:     #ffffff;
+    --mjp-bar:       #ffffff;
+    --mjp-text:      #111111;
+    --mjp-text-muted:#6b6b6b;
+
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    background: var(--mjp-paper);
+  }
+
+  /* ---------- Overlay ---------- */
+  .mjp-overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--mjp-ink);
+    z-index: 20;
+    pointer-events: none;
+  }
+
+  /* ---------- Counter ---------- */
+  .mjp-counter {
+    position: absolute;
+    left: 40px;
+    bottom: 32px;
+    display: flex;
+    align-items: baseline;
+    font-variant-numeric: tabular-nums;
+    font-size: clamp(28px, 5vw, 56px);
+    line-height: 1;
+    color: var(--mjp-paper);
+    letter-spacing: -0.01em;
+  }
+  .mjp-counter-sign {
+    font-size: 0.4em;
+    margin-left: 4px;
+    color: var(--mjp-text-muted);
+  }
+
+  /* ---------- HTML bar (loading phase) — one unified rectangle ---------- */
+  .mjp-bar-wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(42vw, 300px);
+    height: 2px;           /* starts as thin hairline */
+    overflow: hidden;      /* clip fill inside at all heights */
+    /* height animated to 34px by JS after loading completes */
+  }
+
+  /* Single continuous white fill — scaleX driven each rAF frame */
+  .mjp-bar-fill {
+    position: absolute;
+    inset: 0;
+    background: var(--mjp-bar);
+    transform-origin: left center;
+    transform: scaleX(0);
+    /* NO CSS transition — scaleX updated every animation frame */
+  }
+
+  /* Soft 1px divider notches — hidden during thin phase, visible when thick */
+  .mjp-bar-div {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: rgba(0, 0, 0, 0.30);
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  /* ---------- SVG (morph + explode phase only) ---------- */
+  .mjp-svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(42vw, 300px);   /* same as HTML bar — perfect overlay at switchover */
+    height: min(42vw, 300px);  /* square so M fits naturally */
+    display: none;
+    transform-origin: 50% 50%;
+  }
+
+  .mjp-piece {
+    stroke: var(--mjp-bar);
+    stroke-width: 34;
+    fill: none;
+    opacity: 1;
+  }
+
+  /* ---------- Hero ---------- */
+  .mjp-hero {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+  }
+  .mjp-hero-inner { text-align: center; }
+  .mjp-hero-mask  { overflow: hidden; }
+  .mjp-hero-heading {
+    margin: 0;
+    font-size: clamp(40px, 8vw, 96px);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--mjp-text);
+    transform: translateY(110%);
+  }
+  .mjp-hero-mask-sub { margin-top: 14px; }
+  .mjp-hero-sub {
+    margin: 0;
+    font-size: clamp(14px, 1.6vw, 18px);
+    color: var(--mjp-text-muted);
+    transform: translateY(110%);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mjp-overlay, .mjp-bar-fill, .mjp-piece, .mjp-hero-heading, .mjp-hero-sub {
+      transition: none !important;
+    }
+  }
+</style>
+
+<script>
+(function () {
+  "use strict";
+
+  var section   = document.getElementById("mjp-hero-section");
+  if (!section) return;
+
+  var overlay    = section.querySelector("#mjp-overlay");
+  var counterEl  = section.querySelector("#mjp-counter-num");
+  var barWrap    = section.querySelector("#mjp-bar-wrap");
+  var fillEl     = section.querySelector("#mjp-fill-main");   // single fill
+  var svgEl      = section.querySelector("#mjp-svg");
+  var pieceEls   = [
+    section.querySelector("#mjp-piece-1"),
+    section.querySelector("#mjp-piece-2"),
+    section.querySelector("#mjp-piece-3"),
+    section.querySelector("#mjp-piece-4")
+  ];
+  var headingEls = section.querySelectorAll(".mjp-hero-heading, .mjp-hero-sub");
+
+  var prefersReducedMotion = false;
+  try {
+    prefersReducedMotion =
+      typeof window.matchMedia === "function" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  } catch (e) { prefersReducedMotion = false; }
+
+  /* ---- SVG geometry (viewBox 400×400) ---- */
+  var BAR_Y = 200, BAR_LEFT = 60, BAR_RIGHT = 340;
+  var BAR_SEG = (BAR_RIGHT - BAR_LEFT) / 4; // 70
+
+  var LOADING = [
+    { x1: BAR_LEFT,              y1: BAR_Y, x2: BAR_LEFT + BAR_SEG,     y2: BAR_Y },
+    { x1: BAR_LEFT + BAR_SEG,   y1: BAR_Y, x2: BAR_LEFT + BAR_SEG * 2, y2: BAR_Y },
+    { x1: BAR_LEFT + BAR_SEG*2, y1: BAR_Y, x2: BAR_LEFT + BAR_SEG * 3, y2: BAR_Y },
+    { x1: BAR_LEFT + BAR_SEG*3, y1: BAR_Y, x2: BAR_RIGHT,              y2: BAR_Y }
+  ];
+
+  var TOP_Y = 95, VALLEY_Y = 210, BASE_Y = 340;
+  var LEFT_X = 110, RIGHT_X = 290, VALLEY_X = 200;
+
+  var M_SHAPE = [
+    { x1: LEFT_X,   y1: BASE_Y,   x2: LEFT_X,   y2: TOP_Y    },
+    { x1: LEFT_X,   y1: TOP_Y,    x2: VALLEY_X, y2: VALLEY_Y },
+    { x1: VALLEY_X, y1: VALLEY_Y, x2: RIGHT_X,  y2: TOP_Y    },
+    { x1: RIGHT_X,  y1: TOP_Y,    x2: RIGHT_X,  y2: BASE_Y   }
+  ];
+
+  function setLine(el, c) {
+    el.setAttribute("x1", c.x1); el.setAttribute("y1", c.y1);
+    el.setAttribute("x2", c.x2); el.setAttribute("y2", c.y2);
+  }
+  function lerp(a, b, t) { return a + (b - a) * t; }
+  function easeInOutCubic(t) {
+    return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2, 3)/2;
+  }
+  function wait(ms) { return new Promise(function(r){ setTimeout(r, ms); }); }
+
+  /* ================================================================
+     PHASE 1+2 — counter AND single continuous fill, in perfect sync.
+
+     eased progress p ∈ [0,1]:
+       counter = Math.round(p × 100)
+       fillEl  = scaleX(p)   ← one smooth left-to-right grow
+
+     The 3 divider lines in the HTML sit on top and create the
+     subtle segment notches visually — no separate per-fill logic.
+     ================================================================ */
+  function animateLoading(duration) {
+    return new Promise(function(resolve) {
+      if (prefersReducedMotion) {
+        counterEl.textContent = "100";
+        fillEl.style.transform = "scaleX(1)";
+        resolve();
+        return;
+      }
+      var start = null;
+      function frame(ts) {
+        if (start === null) start = ts;
+        var raw   = Math.min((ts - start) / duration, 1);
+        var eased = easeInOutCubic(raw);
+
+        counterEl.textContent = String(Math.round(eased * 100));
+        fillEl.style.transform = "scaleX(" + eased + ")";
+
+        if (raw < 1) { requestAnimationFrame(frame); } else { resolve(); }
+      }
+      requestAnimationFrame(frame);
+    });
+  }
+
+  /* ================================================================
+     PHASE 2.5 — thin → thick: once loading hits 100%, the hairline
+     bar snaps open to full height before the morph begins.
+     Uses a snappy ease-out so it feels like a sudden "pop".
+     ================================================================ */
+  function thickenBar(duration) {
+    return new Promise(function(resolve) {
+      if (prefersReducedMotion) {
+        barWrap.style.height = "34px";
+        resolve(); return;
+      }
+      barWrap.style.transition =
+        "height " + duration + "ms cubic-bezier(0.22, 1, 0.36, 1)";
+      void barWrap.offsetWidth; // force reflow
+      barWrap.style.height = "34px";
+      setTimeout(resolve, duration);
+    });
+  }
+
+  /* ================================================================
+     PHASE 3 — exact size match + constant stroke weight.
+
+     Previous bug: stroke-width animated from ~45 → 34 during morph,
+     which visually thinned the bar BEFORE the M appeared.
+
+     Fix:
+     1. Measure SVG's actual rendered height by briefly showing it
+        with visibility:hidden (gets real CSS pixels, not a formula).
+     2. Set stroke-width = barH × 400 / svgH  → exactly 34px visual.
+     3. morphToM only animates COORDINATES — stroke-width is frozen.
+        The bar melts into M shape at constant visual weight.
+     ================================================================ */
+
+  var _strokeStart = 34;
+  var _SVG_BAR = [
+    { x1: 0,   y1: 200, x2: 100, y2: 200 },
+    { x1: 100, y1: 200, x2: 200, y2: 200 },
+    { x1: 200, y1: 200, x2: 300, y2: 200 },
+    { x1: 300, y1: 200, x2: 400, y2: 200 }
+  ];
+
+  function switchToSVG() {
+    var barH = barWrap.offsetHeight;   // exact rendered bar height (34px)
+
+    // Briefly show SVG (invisible) to read its real CSS-computed size
+    svgEl.style.visibility = "hidden";
+    svgEl.style.display    = "block";
+    var svgH = svgEl.offsetHeight;     // actual rendered SVG height
+    svgEl.style.display    = "none";
+    svgEl.style.visibility = "";
+
+    // stroke-width that produces exactly barH px of visual height
+    _strokeStart = barH * 400 / svgH;
+
+    pieceEls.forEach(function(el, i) {
+      setLine(el, _SVG_BAR[i]);
+      el.setAttribute("stroke-width", _strokeStart);
+    });
+
+    // Instant swap — visual sizes match exactly, no crossfade needed
+    barWrap.style.display = "none";
+    svgEl.style.display   = "block";
+    svgEl.style.visibility = "";
+  }
+
+  function morphToM(duration) {
+    return new Promise(function(resolve) {
+      if (prefersReducedMotion) {
+        pieceEls.forEach(function(el, i) {
+          setLine(el, M_SHAPE[i]);
+          // keep stroke-width at _strokeStart — no thinning
+        });
+        resolve(); return;
+      }
+      var start = null;
+      function frame(ts) {
+        if (start === null) start = ts;
+        var t     = Math.min((ts - start) / duration, 1);
+        var eased = easeInOutCubic(t);
+        pieceEls.forEach(function(el, i) {
+          var from = _SVG_BAR[i], to = M_SHAPE[i];
+          el.setAttribute("x1", lerp(from.x1, to.x1, eased));
+          el.setAttribute("y1", lerp(from.y1, to.y1, eased));
+          el.setAttribute("x2", lerp(from.x2, to.x2, eased));
+          el.setAttribute("y2", lerp(from.y2, to.y2, eased));
+          // stroke-width FROZEN at _strokeStart — bar weight never changes
+        });
+        if (t < 1) { requestAnimationFrame(frame); } else { resolve(); }
+      }
+      requestAnimationFrame(frame);
+    });
+  }
+
+  /* ================================================================
+     PHASE 4 — explode, fade, rise
+     ================================================================ */
+  function explodeAndFly(duration) {
+    return new Promise(function(resolve) {
+      if (prefersReducedMotion) { overlay.style.opacity = "0"; resolve(); return; }
+      svgEl.style.transition =
+        "transform " + duration + "ms cubic-bezier(0.65, 0, 0.35, 1)";
+      void svgEl.offsetWidth;
+      svgEl.style.transform =
+        "translate(-50%, -50%) translate(1400px, 900px) scale(40) rotate(45deg)";
+      setTimeout(resolve, duration);
+    });
+  }
+
+  function fadeOutOverlay(duration) {
+    return new Promise(function(resolve) {
+      overlay.style.transition = "opacity " + duration + "ms ease";
+      overlay.style.opacity = "0";
+      setTimeout(function() { overlay.style.display = "none"; resolve(); }, duration);
+    });
+  }
+
+  function riseHeadings(duration) {
+    return new Promise(function(resolve) {
+      headingEls.forEach(function(el, i) {
+        el.style.transition =
+          "transform " + duration + "ms cubic-bezier(0.22, 1, 0.36, 1) " +
+          (i * 90) + "ms";
+        el.style.transform = "translateY(0)";
+      });
+      setTimeout(resolve, duration + headingEls.length * 90);
+    });
+  }
+
+  /* ================================================================
+     MAIN SEQUENCE
+     ================================================================ */
+  function playSequence() {
+    // Reset all state
+    overlay.style.display    = "block";
+    overlay.style.opacity    = "1";
+    barWrap.style.display    = "block";
+    barWrap.style.transition = "none";
+    barWrap.style.height     = "2px";
+    barWrap.style.opacity    = "";
+    svgEl.style.display      = "none";
+    svgEl.style.transition   = "none";
+    svgEl.style.transform    = "translate(-50%, -50%)";
+    svgEl.style.opacity      = "";
+    pieceEls.forEach(function(el) { el.setAttribute("stroke-width", "34"); });
+    fillEl.style.transition  = "none";
+    fillEl.style.transform   = "scaleX(0)";
+    headingEls.forEach(function(el) {
+      el.style.transition = "none";
+      el.style.transform  = "translateY(110%)";
+    });
+    counterEl.textContent = "0";
+    void overlay.offsetWidth;
+
+    var fillDuration = prefersReducedMotion ? 0 : 1800;
+
+    return animateLoading(fillDuration)
+      .then(function() { return thickenBar(prefersReducedMotion ? 0 : 220); })
+      .then(function() { return wait(prefersReducedMotion ? 0 : 240); }) // hold thick bar
+      // switchToSVG: instant swap (sizes match) → morph starts immediately
+      .then(function() { switchToSVG(); return morphToM(prefersReducedMotion ? 0 : 950); })
+      .then(function() { return wait(prefersReducedMotion ? 0 : 500); })
+      .then(function() {
+        return Promise.all([
+          explodeAndFly(prefersReducedMotion ? 0 : 900),
+          fadeOutOverlay(prefersReducedMotion ? 0 : 500),
+          riseHeadings(prefersReducedMotion ? 0 : 900)
+        ]);
+      })
+      .then(function() {
+        section.dispatchEvent(new CustomEvent("mjp:complete"));
+      });
+  }
+
+  section.mjpPlay = playSequence;
+  playSequence();
+})();
+</script>
+<!-- ================================================================
+     END SELF-CONTAINED PORTFOLIO HERO + PRELOADER SECTION
+     ================================================================ -->
+
+</body>
+</html>
