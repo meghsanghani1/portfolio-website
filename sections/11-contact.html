@@ -1,0 +1,705 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Megh Sanghani</title>
+    <meta
+      name="description"
+      content="Contact Megh Sanghani for senior and manager-level performance marketing opportunities."
+    />
+    <link
+      rel="stylesheet"
+      href="https://db.onlinewebfonts.com/c/5ac3fe7c6abd2f62067f266d89671492?family=HelveticaNowDisplay-Medium"
+    />
+    <link
+      rel="stylesheet"
+      href="https://db.onlinewebfonts.com/c/1aa3377e489837a26d019bba501e779d?family=HelveticaNowDisplayW01-Rg"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet" />
+
+    <style>
+      /*
+        Self-contained portfolio section.
+        Every selector is scoped to #ms-contact-root; no global scrolling or
+        layout rules are applied to html/body.
+      */
+      #ms-contact-root {
+        --ms-red: #f23645;
+        --ms-red-bright: #ff3047;
+        --ms-white: #f8f8f8;
+        --ms-muted: #c8c8ca;
+        --ms-line: rgba(255, 255, 255, 0.28);
+        --ms-font-heading: 'Outfit', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+        --ms-font-body: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+        display: block;
+        width: 100%;
+        color: var(--ms-white);
+        font-family: var(--ms-font-body);
+        isolation: isolate;
+        background: #040303;
+        outline: 2px solid #040303;
+      }
+
+      #ms-contact-root,
+      #ms-contact-root *,
+      #ms-contact-root *::before,
+      #ms-contact-root *::after {
+        box-sizing: border-box;
+      }
+
+      #ms-contact-root .ms-contact {
+        position: relative;
+        min-height: max(700px, 100svh);
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 86% 46%, rgba(255, 22, 47, 0.75), transparent 34%),
+          linear-gradient(108deg, #040303 0%, #100001 48%, #6e0010 75%, #bd001a 100%);
+      }
+
+      #ms-contact-root .ms-contact__art {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        pointer-events: none;
+        user-select: none;
+        -webkit-mask-image: linear-gradient(90deg, transparent 0 49%, rgba(0, 0, 0, 0.5) 56%, #000 64% 100%);
+        mask-image: linear-gradient(90deg, transparent 0 49%, rgba(0, 0, 0, 0.5) 56%, #000 64% 100%);
+      }
+
+      #ms-contact-root .ms-contact__poster {
+        z-index: 0;
+        object-fit: contain;
+        object-position: right center;
+        opacity: 1;
+        transition: opacity 180ms ease;
+      }
+
+      #ms-contact-root .ms-contact__video {
+        z-index: 1;
+        object-fit: contain;
+        object-position: right center;
+      }
+
+      #ms-contact-root .ms-contact.ms-video-ready .ms-contact__poster {
+        visibility: hidden;
+        opacity: 0;
+      }
+
+      #ms-contact-root .ms-contact__left-cover {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        pointer-events: none;
+        background:
+          linear-gradient(90deg, #040303 0 45%, rgba(4, 3, 3, 0.96) 51%, rgba(20, 0, 2, 0.32) 59%, transparent 68%),
+          linear-gradient(0deg, rgba(0, 0, 0, 0.28), transparent 48%);
+      }
+
+      #ms-contact-root .ms-contact__glow {
+        position: absolute;
+        z-index: 2;
+        right: -12%;
+        bottom: -32%;
+        width: 54%;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: rgba(255, 20, 49, 0.3);
+        filter: blur(90px);
+        pointer-events: none;
+        animation: ms-breathe 6s ease-in-out infinite;
+      }
+
+      #ms-contact-root .ms-contact__inner {
+        position: relative;
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        min-height: max(700px, 100svh);
+        padding: clamp(28px, 5vw, 76px) clamp(22px, 4vw, 62px);
+      }
+
+      #ms-contact-root .ms-brand {
+        width: min(100%, 880px);
+      }
+
+      #ms-contact-root .ms-brand__name {
+        margin: 0;
+        color: var(--ms-white);
+        font-family: var(--ms-font-heading);
+        font-size: clamp(1.4rem, 2.2vw, 2.05rem);
+        font-weight: 750;
+        line-height: 1;
+        letter-spacing: -0.045em;
+      }
+
+      #ms-contact-root .ms-brand__role {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.42rem;
+        align-items: center;
+        margin: 0.95rem 0 0;
+        color: var(--ms-muted);
+        font-size: clamp(0.98rem, 1.45vw, 1.28rem);
+        line-height: 1.4;
+      }
+
+      #ms-contact-root .ms-brand__dot {
+        color: var(--ms-red-bright);
+        font-weight: 800;
+      }
+
+      #ms-contact-root .ms-contact__content {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: center;
+        width: min(64%, 900px);
+        padding: 2.25rem 0 1.5rem;
+      }
+
+      #ms-contact-root .ms-eyebrow {
+        margin: 0 0 clamp(1.3rem, 2.4vw, 2.2rem);
+        color: var(--ms-red-bright);
+        font-size: clamp(0.85rem, 1.2vw, 1.15rem);
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+      }
+
+      #ms-contact-root .ms-title {
+        max-width: 850px;
+        margin: 0;
+        color: var(--ms-white);
+        font-size: clamp(2.8rem, 5vw, 5.15rem);
+        font-weight: 800;
+        line-height: 0.98;
+        letter-spacing: -0.052em;
+      }
+
+      #ms-contact-root .ms-title__accent {
+        color: var(--ms-red);
+      }
+
+      #ms-contact-root .ms-status {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin: clamp(1.8rem, 3vw, 3rem) 0 1rem;
+        padding-left: 1.15rem;
+        border-left: 3px solid var(--ms-red-bright);
+        color: var(--ms-muted);
+        font-size: clamp(1rem, 1.45vw, 1.35rem);
+        line-height: 1.35;
+      }
+
+      #ms-contact-root .ms-intro-copy {
+        max-width: 760px;
+        margin: 0 0 clamp(1.8rem, 2.5vw, 2.6rem);
+        color: var(--ms-muted);
+        font-size: clamp(1rem, 1.35vw, 1.25rem);
+        line-height: 1.45;
+      }
+
+      #ms-contact-root .ms-status svg {
+        width: 27px;
+        height: 27px;
+        flex: 0 0 27px;
+        color: var(--ms-red-bright);
+      }
+
+      #ms-contact-root .ms-actions {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1rem;
+        width: min(100%, 900px);
+      }
+
+      #ms-contact-root .ms-action {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 0.85rem;
+        min-height: 76px;
+        padding: 1rem 1.1rem;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.48);
+        border-radius: 16px;
+        background: rgba(3, 3, 3, 0.2);
+        color: var(--ms-white);
+        font-size: clamp(0.88rem, 1.05vw, 1.08rem);
+        font-weight: 650;
+        line-height: 1;
+        text-decoration: none;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        transition: transform 220ms ease, border-color 220ms ease, background 220ms ease;
+      }
+
+      #ms-contact-root .ms-action::before {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background: linear-gradient(110deg, rgba(255, 48, 71, 0.22), transparent 60%);
+        content: "";
+        opacity: 0;
+        transition: opacity 220ms ease;
+      }
+
+      #ms-contact-root .ms-action:hover,
+      #ms-contact-root .ms-action:focus-visible {
+        transform: translateY(-4px);
+        border-color: rgba(255, 255, 255, 0.9);
+        background: rgba(18, 2, 4, 0.68);
+      }
+
+      #ms-contact-root .ms-action:hover::before,
+      #ms-contact-root .ms-action:focus-visible::before {
+        opacity: 1;
+      }
+
+      #ms-contact-root .ms-action:focus-visible,
+      #ms-contact-root .ms-meta__link:focus-visible {
+        outline: 3px solid var(--ms-white);
+        outline-offset: 4px;
+      }
+
+      #ms-contact-root .ms-action__icon {
+        display: grid;
+        flex: 0 0 31px;
+        width: 31px;
+        height: 31px;
+        place-items: center;
+        color: var(--ms-red-bright);
+      }
+
+      #ms-contact-root .ms-action__icon--linkedin {
+        border-radius: 4px;
+        background: #0a66c2;
+        color: #fff;
+      }
+
+      #ms-contact-root .ms-action__icon--whatsapp {
+        color: #25d366;
+      }
+
+      #ms-contact-root .ms-action__icon svg {
+        width: 29px;
+        height: 29px;
+      }
+
+      #ms-contact-root .ms-action__arrow {
+        width: 27px;
+        height: 27px;
+        margin-left: auto;
+        transition: transform 220ms ease;
+      }
+
+      #ms-contact-root .ms-action:hover .ms-action__arrow,
+      #ms-contact-root .ms-action:focus-visible .ms-action__arrow {
+        transform: translateX(5px);
+      }
+
+      #ms-contact-root .ms-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.2rem clamp(1.6rem, 3vw, 3rem);
+        align-items: center;
+        width: min(62%, 900px);
+        margin-top: auto;
+        padding-top: 2rem;
+        border-top: 1px solid var(--ms-line);
+      }
+
+      #ms-contact-root .ms-meta__link {
+        display: inline-flex;
+        gap: 0.85rem;
+        align-items: center;
+        color: var(--ms-white);
+        font-size: clamp(0.9rem, 1.15vw, 1.08rem);
+        text-decoration: none;
+        transition: color 180ms ease;
+      }
+
+      #ms-contact-root .ms-meta__link:hover {
+        color: var(--ms-red-bright);
+      }
+
+      #ms-contact-root .ms-meta__link svg {
+        width: 25px;
+        height: 25px;
+        color: var(--ms-red-bright);
+      }
+
+      #ms-contact-root .ms-meta__divider {
+        width: 1px;
+        height: 28px;
+        background: var(--ms-red-bright);
+      }
+
+      #ms-contact-root .ms-reveal {
+        opacity: 0;
+        transform: translateY(18px);
+        animation: ms-reveal 700ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      }
+
+      #ms-contact-root .ms-reveal--1 { animation-delay: 80ms; }
+      #ms-contact-root .ms-reveal--2 { animation-delay: 180ms; }
+      #ms-contact-root .ms-reveal--3 { animation-delay: 280ms; }
+      #ms-contact-root .ms-reveal--4 { animation-delay: 380ms; }
+
+      @keyframes ms-reveal {
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes ms-breathe {
+        0%, 100% { opacity: 0.55; transform: scale(0.94); }
+        50% { opacity: 0.85; transform: scale(1.06); }
+      }
+
+      @media (max-width: 1180px) {
+        #ms-contact-root .ms-contact__content,
+        #ms-contact-root .ms-meta {
+          width: 68%;
+        }
+
+        #ms-contact-root .ms-actions {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (min-width: 761px) {
+        #ms-contact-root .ms-actions > a[href^="mailto:"] {
+          order: -1;
+        }
+      }
+
+      @media (max-width: 760px) {
+        #ms-contact-root .ms-contact {
+          min-height: max(760px, 100svh);
+          background:
+            radial-gradient(circle at 92% 24%, rgba(255, 22, 47, 0.6), transparent 34%),
+            linear-gradient(145deg, #040303 0%, #100001 58%, #730010 100%);
+        }
+
+        #ms-contact-root .ms-contact__inner {
+          min-height: max(760px, 100svh);
+          padding: 26px 20px 28px;
+        }
+
+        #ms-contact-root .ms-contact__art {
+          display: none;
+        }
+
+        #ms-contact-root .ms-contact__left-cover {
+          background: linear-gradient(90deg, rgba(4, 3, 3, 0.98) 0%, rgba(4, 3, 3, 0.84) 64%, rgba(25, 0, 3, 0.45) 100%);
+        }
+
+        #ms-contact-root .ms-contact__content,
+        #ms-contact-root .ms-meta {
+          width: 100%;
+        }
+
+        #ms-contact-root .ms-contact__content {
+          justify-content: center;
+          padding: 2rem 0;
+        }
+
+        #ms-contact-root .ms-title {
+          font-size: clamp(2.65rem, 12vw, 4.3rem);
+        }
+
+        #ms-contact-root .ms-status {
+          margin-bottom: 1.8rem;
+        }
+
+        #ms-contact-root .ms-actions {
+          gap: 0.75rem;
+        }
+
+        #ms-contact-root .ms-action {
+          min-height: 58px;
+          padding: 0.85rem;
+          border-radius: 13px;
+        }
+
+        #ms-contact-root .ms-action__arrow {
+          display: none;
+        }
+
+        #ms-contact-root .ms-meta {
+          padding-top: 1.35rem;
+        }
+      }
+
+      @media (max-width: 440px) {
+        #ms-contact-root .ms-actions {
+          grid-template-columns: 1fr;
+        }
+
+        #ms-contact-root .ms-action {
+          min-height: 58px;
+        }
+
+        #ms-contact-root .ms-action__arrow {
+          display: block;
+        }
+
+        #ms-contact-root .ms-meta {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        #ms-contact-root .ms-meta__divider {
+          display: none;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        #ms-contact-root .ms-contact__glow,
+        #ms-contact-root .ms-reveal {
+          animation: none;
+          opacity: 1;
+          transform: none;
+        }
+
+        #ms-contact-root .ms-action,
+        #ms-contact-root .ms-action::before,
+        #ms-contact-root .ms-action__arrow,
+        #ms-contact-root .ms-meta__link {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+
+  <!-- The inline body style is preview-only; it is not part of the section. -->
+  <body style="margin: 0; background: #040303">
+    <div id="ms-contact-root">
+      <section class="ms-contact" aria-labelledby="ms-contact-title">
+        <img
+          class="ms-contact__art ms-contact__poster"
+          src="../assets/ec8e014dad43404bd38a.webp"
+          alt=""
+          aria-hidden="true"
+        />
+        <video
+          class="ms-contact__art ms-contact__video"
+          src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260826_041744_63efcd78-bf7d-4039-99e2-2461e8a61903.mp4"
+          muted
+          playsinline
+          preload="auto"
+          tabindex="-1"
+          aria-hidden="true"
+        ></video>
+        <div class="ms-contact__left-cover" aria-hidden="true"></div>
+        <div class="ms-contact__glow" aria-hidden="true"></div>
+
+        <div class="ms-contact__inner">
+          <header class="ms-brand ms-reveal ms-reveal--1">
+            <p class="ms-brand__name">Megh Sanghani</p>
+            <p class="ms-brand__role">
+              <span>Performance Marketing</span>
+              <span class="ms-brand__dot" aria-hidden="true">•</span>
+              <span>Growth Strategy</span>
+              <span class="ms-brand__dot" aria-hidden="true">•</span>
+              <span>AI</span>
+            </p>
+          </header>
+
+          <div class="ms-contact__content">
+            <p class="ms-eyebrow ms-reveal ms-reveal--1">Let’s talk</p>
+            <h2 id="ms-contact-title" class="ms-title ms-reveal ms-reveal--2">
+              Let’s talk about<br /><span class="ms-title__accent">what’s next.</span>
+            </h2>
+
+            <p class="ms-status ms-reveal ms-reveal--3">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="3" y="7" width="18" height="13" rx="2" stroke="currentColor" stroke-width="1.8" />
+                <path d="M8 7V5.7C8 4.76 8.76 4 9.7 4h4.6c.94 0 1.7.76 1.7 1.7V7M3 12h18M9 12v2h6v-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+              </svg>
+              <span>Open to Senior and Manager-level performance marketing opportunities.</span>
+            </p>
+
+            <p class="ms-intro-copy ms-reveal ms-reveal--3">
+              If you’re looking for a performance marketing professional focused on measurable growth, thoughtful experimentation, and effective digital execution, I’d welcome the opportunity to connect.
+            </p>
+
+            <nav class="ms-actions ms-reveal ms-reveal--4" aria-label="Contact options">
+              <a
+                class="ms-action"
+                href="https://www.linkedin.com/in/sanghanimegh/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open Megh Sanghani’s LinkedIn profile"
+              >
+                <span class="ms-action__icon ms-action__icon--linkedin" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M6.5 8.1H3.4V21h3.1V8.1ZM4.95 3A1.82 1.82 0 1 0 5 6.64 1.82 1.82 0 0 0 4.95 3ZM21 13.62c0-3.88-2.07-5.68-4.84-5.68a4.18 4.18 0 0 0-3.8 2.08V8.1H9.24V21h3.12v-6.38c0-1.68.32-3.31 2.4-3.31 2.05 0 2.08 1.92 2.08 3.42V21H21v-7.38Z" />
+                  </svg>
+                </span>
+                <span>LinkedIn</span>
+                <svg class="ms-action__arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M5 12h14M14 7l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </a>
+
+              <a class="ms-action" href="mailto:sanghanimegh619@gmail.com" aria-label="Email Megh Sanghani">
+                <span class="ms-action__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <rect x="2.5" y="5" width="19" height="14" rx="2" stroke="currentColor" stroke-width="1.8" />
+                    <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </span>
+                <span>Email</span>
+                <svg class="ms-action__arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M5 12h14M14 7l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </a>
+
+              <a
+                class="ms-action"
+                href="https://wa.me/917202077591"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open a WhatsApp chat with Megh Sanghani"
+              >
+                <span class="ms-action__icon ms-action__icon--whatsapp" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M20.4 11.66a8.42 8.42 0 0 1-12.46 7.39L3 20.6l1.6-4.8a8.4 8.4 0 1 1 15.8-4.14Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M8.1 7.7c.24-.52.48-.53.7-.54h.6c.2 0 .46.07.56.4.12.38.7 1.82.76 1.95.06.13.1.28.02.44-.07.17-.12.27-.24.41l-.35.4c-.12.12-.25.26-.1.52.14.26.63 1.05 1.36 1.7.94.84 1.72 1.1 1.98 1.23.26.13.41.11.56-.07.15-.17.64-.74.8-1 .18-.26.35-.21.59-.13.24.09 1.52.72 1.78.85.26.13.43.2.5.3.06.11.06.62-.14 1.22-.2.6-1.18 1.15-1.62 1.22-.42.07-.96.1-1.55-.1a14.1 14.1 0 0 1-1.4-.52c-2.46-1.06-4.06-3.54-4.19-3.72-.12-.17-1-1.33-1-2.54 0-1.2.63-1.8.86-2.05Z" fill="currentColor" />
+                  </svg>
+                </span>
+                <span>WhatsApp</span>
+                <svg class="ms-action__arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M5 12h14M14 7l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </a>
+
+              <a class="ms-action" href="tel:+917202077591" aria-label="Call Megh Sanghani at plus 91 72020 77591">
+                <span class="ms-action__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M8.1 3.7 5.3 4.95c-.86.38-1.32 1.32-1.08 2.22 1.76 6.6 6.93 11.77 13.53 13.53.9.24 1.84-.22 2.22-1.08l1.25-2.8a1.5 1.5 0 0 0-.43-1.78l-3.05-2.5a1.5 1.5 0 0 0-1.84-.04l-1.74 1.3a12.1 12.1 0 0 1-4.04-4.04l1.3-1.74a1.5 1.5 0 0 0-.04-1.84l-2.5-3.05A1.5 1.5 0 0 0 8.1 3.7Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </span>
+                <span>Call</span>
+                <svg class="ms-action__arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M5 12h14M14 7l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </a>
+            </nav>
+          </div>
+
+          <footer class="ms-meta ms-reveal ms-reveal--4">
+            <a class="ms-meta__link" href="mailto:sanghanimegh619@gmail.com">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="2.5" y="5" width="19" height="14" rx="2" stroke="currentColor" stroke-width="1.8" />
+                <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <span>sanghanimegh619@gmail.com</span>
+            </a>
+
+            <span class="ms-meta__divider" aria-hidden="true"></span>
+
+            <a class="ms-meta__link" href="tel:+917202077591">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M8.1 3.7 5.3 4.95c-.86.38-1.32 1.32-1.08 2.22 1.76 6.6 6.93 11.77 13.53 13.53.9.24 1.84-.22 2.22-1.08l1.25-2.8a1.5 1.5 0 0 0-.43-1.78l-3.05-2.5a1.5 1.5 0 0 0-1.84-.04l-1.74 1.3a12.1 12.1 0 0 1-4.04-4.04l1.3-1.74a1.5 1.5 0 0 0-.04-1.84l-2.5-3.05A1.5 1.5 0 0 0 8.1 3.7Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <span>(+91) - 72020 77591</span>
+            </a>
+          </footer>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      (() => {
+        const root = document.getElementById('ms-contact-root');
+        const section = root?.querySelector('.ms-contact');
+        const video = root?.querySelector('.ms-contact__video');
+        if (!section || !video) return;
+
+        let targetTime = 0;
+        let displayedTime = 0;
+        let animationFrame = 0;
+        let lastSeekWrite = 0;
+        let pointerActive = false;
+
+        const hasDuration = () =>
+          Number.isFinite(video.duration) && video.duration > 0;
+
+        const animateSeek = (now) => {
+          animationFrame = 0;
+          if (!hasDuration()) return;
+          /* Preserve the reference interaction while removing the delayed
+             catch-up that becomes noticeable inside the combined page. */
+          displayedTime += (targetTime - displayedTime) * 0.34;
+
+          /* Avoid queuing a second media seek while the browser is still
+             decoding the previous frame; overlapping seeks caused the visible
+             head jitter in the desktop recording. */
+          if (!video.seeking && now - lastSeekWrite >= 24 && Math.abs(video.currentTime - displayedTime) >= .006) {
+            video.currentTime = Math.min(video.duration, Math.max(0, displayedTime));
+            lastSeekWrite = now;
+          }
+
+          if (Math.abs(targetTime - displayedTime) > .004) {
+            animationFrame = window.requestAnimationFrame(animateSeek);
+          } else {
+            displayedTime = targetTime;
+          }
+        };
+
+        const requestSeek = () => {
+          if (!animationFrame) animationFrame = window.requestAnimationFrame(animateSeek);
+        };
+
+        const handlePointerMove = (event) => {
+          if (event.pointerType && event.pointerType !== 'mouse') return;
+          if (!hasDuration()) return;
+
+          const bounds = section.getBoundingClientRect();
+          const rawProgress = (event.clientX - bounds.left) / Math.max(bounds.width, 1);
+          const progress = Math.min(1, Math.max(0, (rawProgress - 0.08) / 0.84));
+          targetTime = progress * video.duration;
+          pointerActive = true;
+          requestSeek();
+        };
+
+        video.addEventListener('loadedmetadata', () => {
+          video.pause();
+          targetTime = 0;
+          displayedTime = 0;
+          pointerActive = false;
+          video.currentTime = 0;
+        });
+
+        const markVideoReady = () => {
+          section.classList.add('ms-video-ready');
+        };
+
+        video.addEventListener('loadeddata', markVideoReady);
+
+        video.addEventListener('error', () => {
+          section.classList.remove('ms-video-ready');
+        });
+
+        if (video.readyState >= 2) markVideoReady();
+
+        section.addEventListener('pointermove', handlePointerMove, { passive: true });
+        section.addEventListener('pointerleave', () => {
+          if (!pointerActive || !hasDuration()) return;
+          targetTime = displayedTime;
+          pointerActive = false;
+        }, { passive: true });
+      })();
+    </script>
+  </body>
+</html>

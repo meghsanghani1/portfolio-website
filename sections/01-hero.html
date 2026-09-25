@@ -1,0 +1,281 @@
+<!-- Drop-in portfolio section. Paste into the existing page; do not wrap in another HTML document.
+     #work, #about, #expertise, #experience and #contact should exist in the full page.
+     Place Megh-Sanghani-CV.pdf alongside the final page or change the CV href below. -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+.ms-hero {
+  --ms-white:#fff;--ms-purple:#7442f6;--ms-light:#af80ff;
+  position:relative;isolation:isolate;display:flex;flex-direction:column;
+  box-sizing:border-box;width:100%;min-height:100vh;min-height:100svh;
+  padding:clamp(22px,2.4vw,34px) clamp(24px,4vw,66px) clamp(22px,3.9vw,42px);
+  overflow:hidden;background:#0a090d;color:var(--ms-white);
+  font-family:Inter,Arial,sans-serif;
+}
+.ms-hero *, .ms-hero *::before, .ms-hero *::after {box-sizing:border-box}
+.ms-hero a{color:inherit;text-decoration:none}
+.ms-hero__media{position:absolute;inset:0;z-index:-1;overflow:hidden;background:#111 url('../assets/049dd12d08c506d242b0.webp') center/cover no-repeat}
+.ms-hero__media::after{content:'';position:absolute;inset:0;pointer-events:none;background:
+  linear-gradient(180deg,rgba(5,5,8,.53) 0%,rgba(5,5,8,.14) 19%,transparent 43%,rgba(5,5,8,.18) 66%,rgba(5,5,8,.91) 88%,#08080a 100%),
+  linear-gradient(90deg,rgba(5,5,8,.91) 0%,rgba(5,5,8,.8) 23%,rgba(5,5,8,.48) 47%,rgba(5,5,8,.08) 76%,rgba(5,5,8,.15) 100%)}
+.ms-hero__video{display:block;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0;transition:opacity .35s ease}
+.ms-hero__video.is-ready{opacity:1}
+.ms-hero__nav{position:relative;z-index:4;display:flex;align-items:center;justify-content:space-between;gap:20px;flex:none;width:100%;min-height:56px}
+.ms-hero__brand{display:inline-flex;align-items:center;gap:15px;white-space:nowrap;font-family:Outfit,Arial,sans-serif;font-weight:700;font-size:clamp(18px,1.7vw,28px);line-height:1}
+.ms-hero__brand-mark{width:clamp(38px,3.2vw,54px);height:auto;flex:none}
+.ms-hero__nav-links{display:flex;align-items:center;gap:clamp(24px,3.4vw,60px);margin:0;padding:0;list-style:none}
+.ms-hero__nav-link{position:relative;display:inline-flex;padding:12px 0;color:rgba(255,255,255,.9);font-weight:700;font-size:clamp(13px,1vw,17px);line-height:1.2;text-transform:uppercase;white-space:nowrap;transition:color .2s}
+.ms-hero__nav-link:hover,.ms-hero__nav-link[aria-current=page]{color:#fff}
+.ms-hero__nav-link[aria-current=page]::after{content:'';position:absolute;left:0;right:0;bottom:0;height:3px;background:#945aff;box-shadow:0 0 13px #945aff}
+.ms-hero__menu-button,.ms-hero__mobile-menu{display:none}
+.ms-hero__body{display:flex;flex:1;align-items:flex-start;width:100%;padding-top:clamp(53px,8.3vh,96px);padding-bottom:36px}
+.ms-hero__copy{width:min(100%,1000px)}
+.ms-hero__eyebrow{margin:0;color:var(--ms-light);font-weight:600;font-size:clamp(14px,1.13vw,20px);letter-spacing:.055em;text-transform:uppercase}
+.ms-hero__eyebrow{margin:0 0 clamp(23px,2.7vh,30px)}
+.ms-hero__title{margin:0 0 clamp(20px,2.7vh,29px);font-family:Outfit,Arial,sans-serif;font-weight:700;font-size:clamp(55px,5.1vw,88px);line-height:.965;letter-spacing:-.045em}
+.ms-hero__description{margin:0 0 clamp(33px,4.4vh,47px);font-size:clamp(18px,1.56vw,27px);font-weight:400;line-height:1.42;letter-spacing:-.02em;color:#f4f1f9}
+.ms-hero__accent{color:var(--ms-light);font-weight:600}
+.ms-hero__actions{display:flex;flex-wrap:wrap;gap:22px;align-items:center}
+.ms-hero__case-button,.ms-hero__cv-button{display:inline-flex;align-items:center;justify-content:center;gap:17px;min-height:68px;padding:15px 34px;border-radius:999px;font-size:clamp(15px,1.18vw,20px);font-weight:700;line-height:1.1;text-transform:uppercase;white-space:nowrap;transition:transform .2s,background .2s,box-shadow .2s}
+.ms-hero__case-button{border:1px solid #ad75ff;background:linear-gradient(115deg,#7542f5,#4c22f4);box-shadow:0 15px 32px rgba(63,28,170,.32)}
+.ms-hero__cv-button{border:1px solid rgba(255,255,255,.49);background:rgba(10,9,19,.42)}
+.ms-hero__case-button:hover,.ms-hero__cv-button:hover{transform:translateY(-3px)}
+.ms-hero__case-button:hover{box-shadow:0 18px 40px rgba(85,38,213,.5)}
+.ms-hero__cv-button:hover{background:rgba(255,255,255,.12)}
+.ms-hero__button-icon,.ms-hero__download-icon{display:block;width:23px;height:23px;flex:none}
+.ms-hero__skills{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));width:100%;max-width:1500px;align-items:end;flex:none;margin:0 auto;padding:0;list-style:none}
+.ms-hero__skill{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:end;gap:12px;min-height:95px;text-align:center;font-family:Outfit,Arial,sans-serif;font-size:clamp(14px,1.15vw,21px);font-weight:400;line-height:1.2}
+.ms-hero__skill+ .ms-hero__skill::before{content:'';position:absolute;left:0;top:7px;bottom:4px;width:1px;background:rgba(255,255,255,.2)}
+.ms-hero__skill-icon{display:grid;place-items:center;width:48px;height:48px}
+.ms-hero__skill-icon svg{display:block;width:100%;height:100%;overflow:visible}
+.ms-hero__skill-label{white-space:nowrap}
+.ms-hero__fade-up{opacity:0;transform:translateY(15px);animation:ms-hero-enter .7s ease forwards}
+.ms-hero__delay-1{animation-delay:.06s}.ms-hero__delay-2{animation-delay:.14s}.ms-hero__delay-3{animation-delay:.23s}.ms-hero__delay-4{animation-delay:.32s}.ms-hero__delay-5{animation-delay:.42s}
+@keyframes ms-hero-enter{to{opacity:1;transform:none}}
+.ms-hero a:focus-visible,.ms-hero button:focus-visible{outline:2px solid #b49aff;outline-offset:4px}
+@media(max-width:1100px){
+ .ms-hero__nav-links{gap:22px}.ms-hero__body{padding-top:clamp(55px,7vh,80px)}
+ .ms-hero__title{font-size:clamp(53px,5.8vw,70px)}
+ .ms-hero__description{font-size:clamp(18px,1.9vw,22px)}
+}
+@media(min-width:761px) and (max-height:790px){
+ .ms-hero{padding-top:19px;padding-bottom:17px}.ms-hero__nav{min-height:47px}
+ .ms-hero__body{padding-top:clamp(35px,6vh,55px);padding-bottom:14px}
+ .ms-hero__eyebrow{margin-bottom:15px}
+ .ms-hero__title{font-size:clamp(48px,4.8vw,72px);margin-bottom:15px}
+ .ms-hero__description{font-size:clamp(17px,1.42vw,23px);margin-bottom:23px}
+ .ms-hero__case-button,.ms-hero__cv-button{min-height:55px}
+ .ms-hero__skill{min-height:75px;gap:7px}
+ .ms-hero__skill-icon{width:39px;height:39px}
+}
+@media(max-width:760px){
+ .ms-hero{min-height:100svh;padding:20px 22px 29px}
+ .ms-hero__media::after{background:linear-gradient(180deg,rgba(5,5,8,.5),rgba(5,5,8,.4) 23%,rgba(5,5,8,.76) 48%,#08080a 74%)}
+ .ms-hero__video{object-position:55% center}
+ .ms-hero__nav-links{display:none}
+ .ms-hero__brand{font-size:18px}.ms-hero__brand-mark{width:38px}
+ .ms-hero__menu-button{display:grid;place-items:center;width:44px;height:44px;padding:0;border:0;background:none;color:#fff;cursor:pointer}
+ .ms-hero__menu-lines,.ms-hero__menu-lines::before,.ms-hero__menu-lines::after{display:block;width:27px;height:2px;border-radius:2px;background:currentColor;transition:transform .2s,opacity .2s}
+ .ms-hero__menu-lines{position:relative}.ms-hero__menu-lines::before,.ms-hero__menu-lines::after{content:'';position:absolute;left:0}
+ .ms-hero__menu-lines::before{top:-8px}.ms-hero__menu-lines::after{top:8px}
+ .ms-hero__menu-button[aria-expanded=true] .ms-hero__menu-lines{background:transparent}
+ .ms-hero__menu-button[aria-expanded=true] .ms-hero__menu-lines::before{top:0;transform:rotate(45deg)}
+ .ms-hero__menu-button[aria-expanded=true] .ms-hero__menu-lines::after{top:0;transform:rotate(-45deg)}
+ .ms-hero__mobile-menu{position:absolute;top:calc(100% + 8px);right:0;left:0;display:flex;flex-direction:column;padding:8px 15px;border:1px solid #534b63;border-radius:13px;background:rgba(13,11,20,.97);box-shadow:0 15px 35px #0008;opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .2s,transform .2s,visibility .2s}
+ .ms-hero__mobile-menu.is-open{opacity:1;visibility:visible;transform:none}
+ .ms-hero__mobile-menu .ms-hero__nav-link{padding:13px 5px}
+ .ms-hero__body{padding-top:clamp(105px,18svh,185px);padding-bottom:35px}
+ .ms-hero__title{font-size:clamp(43px,7vw,65px)}
+ .ms-hero__description{font-size:clamp(17px,2.65vw,21px)}
+ .ms-hero__skills{grid-template-columns:repeat(3,minmax(0,1fr));gap:15px 3px}
+ .ms-hero__skill{min-height:76px;gap:7px;font-size:14px}
+ .ms-hero__skill:nth-child(4)::before{display:none}
+ .ms-hero__skill-icon{width:35px;height:35px}
+ .ms-hero__skill-label{white-space:normal}
+}
+@media(max-width:520px){
+ .ms-hero{padding:18px 18px 30px}
+ .ms-hero__body{padding-top:clamp(103px,16svh,150px);padding-bottom:37px}
+ .ms-hero__eyebrow{font-size:13px;margin-bottom:19px}
+ .ms-hero__title{font-size:clamp(34px,8.7vw,48px);line-height:1.04;letter-spacing:-.05em;margin-bottom:18px}
+ .ms-hero__title br{display:none}
+ .ms-hero__description{font-size:17px;line-height:1.45;margin-bottom:27px}
+ .ms-hero__desktop-break{display:none}
+ .ms-hero__actions{gap:11px}
+ .ms-hero__case-button,.ms-hero__cv-button{width:100%;min-height:55px;font-size:14px}
+ .ms-hero__skills{gap:13px 2px}
+ .ms-hero__skill{min-height:75px;font-size:12px}
+ .ms-hero__skill-icon{width:33px;height:33px}
+}
+/* Give the actual mobile viewport its own readable layout. */
+@media(max-width:520px){
+ .ms-hero__title{font-size:clamp(29px,8vw,39px);line-height:1.05;letter-spacing:-.04em}
+ .ms-hero__title br{display:initial}
+ .ms-hero__skill{font-size:13px}
+ .ms-hero__skill-icon{width:37px;height:37px}
+}
+/* On phones and tablets the complete video scene sits above the copy. */
+@media(max-width:900px){
+ .ms-hero{--ms-mobile-media-height:clamp(200px,33svh,320px);--ms-hero-top-inset:20px;padding-top:var(--ms-hero-top-inset)}
+ .ms-hero__media{inset:0 0 auto;height:var(--ms-mobile-media-height);z-index:-1;background-position:center top}
+ .ms-hero__media::after{background:linear-gradient(180deg,rgba(5,5,8,.2),rgba(5,5,8,.03) 48%,rgba(5,5,8,.45) 78%,#08080a 100%)}
+ .ms-hero__video{object-position:center center}
+ .ms-hero__body{flex:0 0 auto;margin-top:calc(var(--ms-mobile-media-height) - var(--ms-hero-top-inset));padding-top:12px;padding-bottom:26px}
+ .ms-hero__skills{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:520px){
+ .ms-hero{--ms-mobile-media-height:clamp(180px,30svh,245px);--ms-hero-top-inset:18px}
+}
+@media(max-width:360px){
+ .ms-hero__title{font-size:27px}
+ .ms-hero__brand{font-size:16px}
+ .ms-hero__brand-mark{width:34px}
+}
+@media(prefers-reduced-motion:reduce){
+ .ms-hero__fade-up{opacity:1;transform:none;animation:none}
+ .ms-hero__video{display:none}
+ .ms-hero *{scroll-behavior:auto!important;transition-duration:.01ms!important}
+}
+</style>
+<section class="ms-hero" data-ms-hero aria-labelledby="ms-hero-title">
+  <div class="ms-hero__media" aria-hidden="true">
+    <video class="ms-hero__video" data-ms-hero-video muted playsinline preload="auto" poster="../assets/049dd12d08c506d242b0.webp">
+      <source src="../assets/2fe0b8471b0f20b3c2ef.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <nav class="ms-hero__nav" aria-label="Portfolio navigation">
+    <a class="ms-hero__brand" href="#top" aria-label="Megh Sanghani home">
+      <svg class="ms-hero__brand-mark" viewBox="0 0 52 58" aria-hidden="true">
+        <path d="M26 2.5 49 15.5v27L26 55.5 3 42.5v-27L26 2.5Z" fill="none" stroke="#7a4cff" stroke-width="4"/>
+        <path d="m4.5 16.5 21.5 12 21.5-12M26 29v25M9.5 42 26 32.5 42.5 42M11 12.8 26 21l15-8.2" fill="none" stroke="#7a4cff" stroke-width="3.2" stroke-linejoin="round"/>
+      </svg>
+      <span>MEGH SANGHANI</span>
+    </a>
+
+    <ul class="ms-hero__nav-links">
+      <li><a class="ms-hero__nav-link" href="#case-studies" aria-current="page">Work</a></li>
+      <li><a class="ms-hero__nav-link" href="#about">About</a></li>
+      <li><a class="ms-hero__nav-link" href="#expertise">Expertise</a></li>
+      <li><a class="ms-hero__nav-link" href="#experience">Experience</a></li>
+      <li><a class="ms-hero__nav-link" href="#contact">Contact</a></li>
+    </ul>
+
+    <button class="ms-hero__menu-button" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="ms-hero-mobile-menu" data-ms-menu-button>
+      <span class="ms-hero__menu-lines" aria-hidden="true"></span>
+    </button>
+
+    <div class="ms-hero__mobile-menu" id="ms-hero-mobile-menu" aria-hidden="true" inert data-ms-mobile-menu>
+      <a class="ms-hero__nav-link" href="#case-studies" aria-current="page">Work</a>
+      <a class="ms-hero__nav-link" href="#about">About</a>
+      <a class="ms-hero__nav-link" href="#expertise">Expertise</a>
+      <a class="ms-hero__nav-link" href="#experience">Experience</a>
+      <a class="ms-hero__nav-link" href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <div class="ms-hero__body">
+    <div class="ms-hero__copy">
+      <p class="ms-hero__eyebrow ms-hero__fade-up ms-hero__delay-1">Hello, I'm Megh</p>
+      <h1 id="ms-hero-title" class="ms-hero__title ms-hero__fade-up ms-hero__delay-2">Performance Marketer<br>&amp; Growth<br>Strategist</h1>
+      <p class="ms-hero__description ms-hero__fade-up ms-hero__delay-3">I combine <span class="ms-hero__accent">paid media, analytics</span> and <span class="ms-hero__accent">AI</span><br class="ms-hero__desktop-break"> to drive measurable growth.</p>
+      <div class="ms-hero__actions ms-hero__fade-up ms-hero__delay-4"><a class="ms-hero__case-button" href="#case-studies"><span>View case studies</span><svg class="ms-hero__button-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m0 0-6-6m6 6-6 6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="ms-hero__cv-button" href="./Megh-Sanghani-CV.pdf" download>
+        <span>Download CV</span>
+        <svg class="ms-hero__download-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M5 20h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a></div>
+    </div>
+  </div>
+
+  <ul class="ms-hero__skills ms-hero__fade-up ms-hero__delay-5" aria-label="Marketing expertise">
+    <li class="ms-hero__skill">
+      <span class="ms-hero__skill-icon" aria-hidden="true">
+        <svg viewBox="0 0 48 34" fill="none"><path d="M4 27.5C8.6 13.1 13.2 6 18.1 6c7.4 0 11.2 21.5 18.6 21.5 3.9 0 6.5-3.5 6.5-8.1C43.2 11.8 38 6 32 6c-7.7 0-12.8 21.5-20.2 21.5-4.2 0-7-3.3-7-8.1C4.8 12 10 6 16 6c6.6 0 11 10.2 15.1 17.1" stroke="#1689f7" stroke-width="5.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <span class="ms-hero__skill-label">Meta Ads</span>
+    </li>
+    <li class="ms-hero__skill">
+      <span class="ms-hero__skill-icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48"><path d="M20.6 6.1a7 7 0 0 1 12 0l12 20.7a7 7 0 0 1-6 10.5 7 7 0 0 1-6.1-3.5L20.6 13.1a7 7 0 0 1 0-7Z" fill="#4285f4"/><path d="M20.5 6.1 3.7 35.2a7 7 0 0 0 6.1 10.5 7 7 0 0 0 6-3.5l16.8-29.1a7 7 0 0 0-12.1-7Z" fill="#fbbc04"/><circle cx="9.8" cy="38.7" r="7" fill="#34a853"/></svg>
+      </span>
+      <span class="ms-hero__skill-label">Google Ads</span>
+    </li>
+    <li class="ms-hero__skill">
+      <span class="ms-hero__skill-icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48"><rect x="4" y="31" width="8" height="12" rx="2" fill="#ff8610"/><rect x="16" y="23" width="8" height="20" rx="2" fill="#ff9516"/><rect x="28" y="13" width="8" height="30" rx="2" fill="#ffa51d"/><rect x="40" y="4" width="6" height="39" rx="2" fill="#ffb22a"/></svg>
+      </span>
+      <span class="ms-hero__skill-label">Analytics</span>
+    </li>
+    <li class="ms-hero__skill">
+      <span class="ms-hero__skill-icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48"><defs><linearGradient id="ms-seo-ring" x1="4" y1="4" x2="36" y2="36"><stop stop-color="#28d7f2"/><stop offset="1" stop-color="#596cff"/></linearGradient></defs><circle cx="19" cy="19" r="13" fill="#071721" stroke="url(#ms-seo-ring)" stroke-width="5"/><path d="m29 29 13 13" stroke="#53b9ed" stroke-width="6" stroke-linecap="round"/><text x="19" y="22" fill="#45ccff" font-family="Arial,sans-serif" font-size="8" font-weight="700" text-anchor="middle">SEO</text></svg>
+      </span>
+      <span class="ms-hero__skill-label">SEO</span>
+    </li>
+    <li class="ms-hero__skill">
+      <span class="ms-hero__skill-icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48"><path d="M24 3.5A20.5 20.5 0 0 0 6.4 34.6L3.7 44.5l10.1-2.6A20.5 20.5 0 1 0 24 3.5Z" fill="#27d367"/><path d="M17 13.5c-.5-1.1-1.1-1.1-1.6-1.1h-1.3c-.5 0-1.2.2-1.8.9-.6.7-2.4 2.3-2.4 5.7s2.5 6.7 2.8 7.1c.3.5 4.8 7.7 11.9 10.4 5.9 2.3 7.1 1.8 8.4 1.7 1.3-.1 4.1-1.7 4.7-3.3.6-1.6.6-3 .4-3.3-.2-.3-.7-.5-1.5-.9l-5.1-2.4c-.7-.2-1.2-.4-1.7.4-.5.7-1.9 2.4-2.3 2.9-.4.5-.9.6-1.6.2-4.3-2.1-7.1-3.8-9.9-8.6-.4-.7 0-1.1.3-1.5.4-.4.7-.9 1.1-1.3.4-.4.5-.7.7-1.2.2-.5.1-.9-.1-1.3L17 13.5Z" fill="white"/></svg>
+      </span>
+      <span class="ms-hero__skill-label">WhatsApp Marketing</span>
+    </li>
+    <li class="ms-hero__skill">
+      <span class="ms-hero__skill-icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48" fill="none"><rect x="3" y="8" width="42" height="32" rx="4" fill="#1689f7"/><path d="m5.5 11 18.5 15L42.5 11M5.5 37l13-13M42.5 37l-13-13" stroke="#06111c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <span class="ms-hero__skill-label">Email Marketing</span>
+    </li>
+  </ul>
+</section>
+<script>
+(() => {
+  // Expand only this hero across the browser's default body margin when viewed
+  // as a standalone fragment. A completed portfolio with body margin: 0 stays unchanged.
+  function fitHeroToPage(hero){
+    const parent=hero.parentElement;
+    if(parent!==document.body)return;
+    const bodyStyle=getComputedStyle(parent);
+    const left=parseFloat(bodyStyle.marginLeft)||0;
+    const right=parseFloat(bodyStyle.marginRight)||0;
+    const top=parseFloat(bodyStyle.marginTop)||0;
+    const bottom=parseFloat(bodyStyle.marginBottom)||0;
+    hero.style.width=left||right?`calc(100% + ${left+right}px)`:'';
+    hero.style.marginInlineStart=left?`${-left}px`:'';
+    hero.style.marginInlineEnd=right?`${-right}px`:'';
+    const inFlow=Array.from(parent.children).filter(element=>{
+      if(['META','STYLE','SCRIPT','LINK'].includes(element.tagName))return false;
+      const style=getComputedStyle(element);
+      return style.display!=='none' && !['fixed','absolute'].includes(style.position);
+    });
+    hero.style.marginBlockStart=inFlow[0]===hero && top?`${-top}px`:'';
+    hero.style.marginBlockEnd=inFlow[inFlow.length-1]===hero && bottom?`${-bottom}px`:'';
+  }
+  function initHero(hero){
+    if(hero.dataset.msInitialised) return;
+    hero.dataset.msInitialised='true';
+    fitHeroToPage(hero);
+    window.addEventListener('resize',()=>fitHeroToPage(hero),{passive:true});
+    const video=hero.querySelector('[data-ms-hero-video]');
+    if(video && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      video.loop=false;
+      video.addEventListener('playing',()=>video.classList.add('is-ready'),{once:true});
+      const play=()=>{const promise=video.play();if(promise)promise.catch(()=>{});};
+      if(video.readyState>=1)play();else video.addEventListener('loadedmetadata',play,{once:true});
+    }
+    const button=hero.querySelector('[data-ms-menu-button]');
+    const menu=hero.querySelector('[data-ms-mobile-menu]');
+    if(!button||!menu)return;
+    const close=()=>{button.setAttribute('aria-expanded','false');button.setAttribute('aria-label','Open navigation menu');menu.classList.remove('is-open');menu.setAttribute('aria-hidden','true');menu.inert=true;};
+    button.addEventListener('click',()=>{
+      const opening=button.getAttribute('aria-expanded')!=='true';
+      if(!opening){close();return}
+      button.setAttribute('aria-expanded','true');button.setAttribute('aria-label','Close navigation menu');menu.classList.add('is-open');menu.setAttribute('aria-hidden','false');menu.inert=false;
+      menu.querySelector('a')?.focus();
+    });
+    menu.querySelectorAll('a').forEach(link=>link.addEventListener('click',close));
+    hero.addEventListener('keydown',event=>{if(event.key==='Escape'&&button.getAttribute('aria-expanded')==='true'){close();button.focus()}});
+    document.addEventListener('pointerdown',event=>{if(!hero.contains(event.target))close()},{passive:true});
+    window.addEventListener('resize',()=>{if(window.innerWidth>760)close()});
+  }
+  const start=()=>document.querySelectorAll('[data-ms-hero]').forEach(initHero);
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
+})();
+</script>
