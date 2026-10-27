@@ -1,0 +1,1038 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Megh Sanghani — AI Toolkit and Visual Archives</title>
+  <meta name="description" content="Megh Sanghani's curated AI toolkit for strategy, marketing, creative production, automation, SEO and design.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+</head>
+<body style="margin:0;background:#070711">
+
+<!--
+  SELF-CONTAINED PORTFOLIO SECTION
+  Paste this complete <section>, its <style>, and its <script> into the intended
+  position on the homepage. All selectors and behavior are scoped to this section.
+-->
+<section id="megh-ai-toolkit" tabindex="0" aria-label="Megh Sanghani's AI Toolkit and Visual Archives">
+  <style>
+    #megh-ai-toolkit,
+    #megh-ai-toolkit * {
+      box-sizing: border-box;
+    }
+
+    #megh-ai-toolkit {
+      --mat-bg: #070711;
+      --mat-white: #f5f3fa;
+      --mat-muted: #aaa6bb;
+      --mat-purple: #a77bff;
+      --mat-cyan: #38d9dc;
+      --mat-border: rgba(180, 153, 255, .45);
+      --mat-progress: 0;
+      position: relative;
+      z-index: 0;
+      display: block;
+      width: 100%;
+      height: 520svh;
+      min-height: 520svh;
+      color: var(--mat-white);
+      background: var(--mat-bg);
+      isolation: isolate;
+      outline: none;
+      font-family: "Inter", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    #megh-ai-toolkit .mat-stage {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      height: 100svh;
+      min-height: 100svh;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 30% 44%, rgba(81, 48, 154, .28), transparent 34%),
+        radial-gradient(circle at 76% 66%, rgba(22, 45, 101, .17), transparent 34%),
+        linear-gradient(135deg, #0a0916 0%, #070711 52%, #05050c 100%);
+      contain: layout paint style;
+    }
+
+    #megh-ai-toolkit .mat-stage::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: .14;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
+      mix-blend-mode: soft-light;
+    }
+
+    #megh-ai-toolkit .mat-brand {
+      position: absolute;
+      z-index: 40;
+      top: clamp(24px, 4.3vh, 48px);
+      left: clamp(32px, 2.65vw, 44px);
+      margin: 0;
+    }
+
+    #megh-ai-toolkit .mat-name {
+      display: block;
+      font-size: clamp(1.35rem, 1.65vw, 2rem);
+      font-weight: 760;
+      line-height: 1;
+      letter-spacing: -.035em;
+      font-family: "Outfit", Inter, ui-sans-serif, sans-serif;
+    }
+
+    #megh-ai-toolkit .mat-brandline {
+      display: block;
+      margin-top: 10px;
+      color: var(--mat-muted);
+      font: 400 clamp(.66rem, .72vw, .78rem)/1.35 "Space Mono", ui-monospace, monospace;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+
+    #megh-ai-toolkit .mat-scene {
+      position: absolute;
+      inset: 0;
+      perspective: 1150px;
+      perspective-origin: 62% 48%;
+      pointer-events: none;
+    }
+
+    #megh-ai-toolkit .mat-group {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transform: translate3d(0, 0, -900px) scale(.82);
+      transform-style: preserve-3d;
+      will-change: transform, opacity;
+      pointer-events: none;
+    }
+
+    #megh-ai-toolkit .mat-group.mat-active {
+      pointer-events: auto;
+    }
+
+    #megh-ai-toolkit .mat-card {
+      --mat-rx: 0deg;
+      --mat-ry: 0deg;
+      --mat-float: 0px;
+      --mat-tilt: 0deg;
+      --mat-stretch: 1;
+      --mat-squash: 1;
+      position: absolute;
+      left: var(--mat-x);
+      top: var(--mat-y);
+      width: clamp(150px, 13vw, 204px);
+      aspect-ratio: .76;
+      display: grid;
+      align-content: center;
+      justify-items: center;
+      gap: clamp(12px, 1.4vh, 20px);
+      padding: 19px 13px;
+      overflow: hidden;
+      border: 1px solid var(--mat-border);
+      border-radius: 15px;
+      background:
+        linear-gradient(145deg, rgba(24, 24, 48, .82), rgba(6, 7, 18, .9)),
+        radial-gradient(circle at 50% 0%, color-mix(in srgb, var(--mat-accent) 18%, transparent), transparent 65%);
+      box-shadow:
+        0 28px 70px rgba(0, 0, 0, .36),
+        inset 0 1px 0 rgba(255, 255, 255, .05),
+        0 0 36px color-mix(in srgb, var(--mat-accent) 10%, transparent);
+      transform:
+        translate3d(-50%, calc(-50% + var(--mat-float)), var(--mat-z))
+        rotateX(var(--mat-rx))
+        rotateY(var(--mat-ry))
+        rotate(var(--mat-rot))
+        rotate(var(--mat-tilt))
+        scale(var(--mat-stretch), var(--mat-squash))
+        rotate(calc(-1 * var(--mat-tilt)));
+      transform-style: preserve-3d;
+      transition: border-color .28s ease, box-shadow .28s ease;
+      will-change: transform;
+      pointer-events: auto;
+    }
+
+    #megh-ai-toolkit .mat-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(125deg, rgba(255,255,255,.08), transparent 26%, transparent 68%, rgba(167,123,255,.05));
+    }
+
+    #megh-ai-toolkit .mat-card:hover,
+    #megh-ai-toolkit .mat-card:focus-within {
+      border-color: color-mix(in srgb, var(--mat-accent) 72%, white 10%);
+      box-shadow: 0 34px 80px rgba(0,0,0,.44), 0 0 42px color-mix(in srgb, var(--mat-accent) 20%, transparent);
+    }
+
+    #megh-ai-toolkit .mat-logo-wrap {
+      width: clamp(58px, 5.2vw, 82px);
+      height: clamp(58px, 5.2vw, 82px);
+      display: grid;
+      place-items: center;
+      transform: none;
+    }
+
+    #megh-ai-toolkit .mat-logo {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 8px 18px color-mix(in srgb, var(--mat-accent) 28%, transparent));
+    }
+
+    #megh-ai-toolkit .mat-card-copy {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      text-align: center;
+      transform: none;
+    }
+
+    #megh-ai-toolkit .mat-tool-name {
+      margin: 0;
+      color: #fff;
+      font-size: clamp(1rem, 1.3vw, 1.42rem);
+      font-weight: 620;
+      line-height: 1.1;
+      letter-spacing: -.025em;
+    }
+
+    #megh-ai-toolkit .mat-tool-role {
+      margin: 14px 0 0;
+      color: color-mix(in srgb, var(--mat-accent) 76%, white 16%);
+      font: 700 clamp(.62rem, .67vw, .75rem)/1.55 "Space Mono", ui-monospace, monospace;
+      letter-spacing: .045em;
+      text-transform: uppercase;
+    }
+
+    #megh-ai-toolkit .mat-copy {
+      position: absolute;
+      z-index: 30;
+      left: clamp(32px, 2.65vw, 44px);
+      bottom: clamp(28px, 4.4vh, 42px);
+      width: min(500px, 36vw);
+      opacity: 0;
+      transform: translate3d(0, 32px, 0);
+      will-change: transform, opacity;
+      pointer-events: none;
+    }
+
+    #megh-ai-toolkit .mat-copy.mat-active {
+      pointer-events: auto;
+    }
+
+    #megh-ai-toolkit .mat-kicker {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin: 0 0 15px;
+      color: #b99aff;
+      font: 400 clamp(.68rem, .72vw, .78rem)/1.25 "Space Mono", ui-monospace, monospace;
+      letter-spacing: .075em;
+      text-transform: uppercase;
+    }
+
+    #megh-ai-toolkit .mat-kicker::before {
+      content: "";
+      flex: 0 0 32px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--mat-purple), var(--mat-cyan));
+      box-shadow: 0 0 14px rgba(56, 217, 220, .28);
+    }
+
+    #megh-ai-toolkit .mat-title {
+      max-width: 540px;
+      margin: 0;
+      color: #f7f6fb;
+      font-size: clamp(2.6rem, 4.35vw, 4.8rem);
+      font-weight: 610;
+      line-height: .94;
+      letter-spacing: -.048em;
+      text-wrap: balance;
+      font-family: "Space Grotesk", Inter, ui-sans-serif, sans-serif;
+    }
+
+    #megh-ai-toolkit .mat-description {
+      margin: clamp(15px, 1.9vh, 21px) 0 0;
+      max-width: 360px;
+      color: #b9b6c6;
+      font-size: clamp(.94rem, 1.08vw, 1.17rem);
+      font-weight: 390;
+      line-height: 1.55;
+      letter-spacing: .005em;
+    }
+
+    #megh-ai-toolkit .mat-list {
+      margin: clamp(18px, 2.35vh, 25px) 0 0;
+      color: #b692ff;
+      font: 400 clamp(.62rem, .72vw, .78rem)/1.5 "Space Mono", ui-monospace, monospace;
+      letter-spacing: .075em;
+      text-transform: uppercase;
+    }
+
+    #megh-ai-toolkit .mat-list span + span::before {
+      content: " · ";
+      color: #ddd7e9;
+      padding: 0 .28em;
+    }
+
+    #megh-ai-toolkit .mat-rail {
+      position: absolute;
+      z-index: 45;
+      right: clamp(22px, 3.5vw, 58px);
+      bottom: clamp(28px, 4.5vh, 50px);
+      display: flex;
+      align-items: center;
+      gap: 17px;
+    }
+
+    #megh-ai-toolkit .mat-rail-line {
+      position: relative;
+      width: clamp(58px, 7.5vw, 118px);
+      height: 1px;
+      overflow: hidden;
+      background: rgba(181, 171, 206, .35);
+    }
+
+    #megh-ai-toolkit .mat-rail-line::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      transform: scaleX(var(--mat-progress));
+      transform-origin: left center;
+      background: linear-gradient(90deg, var(--mat-purple), var(--mat-cyan));
+    }
+
+    #megh-ai-toolkit .mat-scroll-label {
+      color: #aaa7b7;
+      font: 400 clamp(.64rem, .68vw, .75rem)/1 "Space Mono", ui-monospace, monospace;
+      letter-spacing: .075em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    #megh-ai-toolkit .mat-dots {
+      --mat-dot-offset: 0px;
+      position: absolute;
+      z-index: 50;
+      top: 50%;
+      right: clamp(16px, 2vw, 30px);
+      display: grid;
+      gap: 10px;
+      transform: translateY(-50%);
+    }
+
+    #megh-ai-toolkit .mat-dots::before {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      top: 10px;
+      bottom: 10px;
+      left: 50%;
+      width: 1px;
+      transform: translateX(-50%);
+      background: linear-gradient(180deg, rgba(167,123,255,.28), rgba(255,255,255,.08), rgba(56,217,220,.24));
+    }
+
+    #megh-ai-toolkit .mat-dots::after {
+      content: "";
+      position: absolute;
+      z-index: 3;
+      top: 6px;
+      left: 50%;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      transform: translate(-50%, var(--mat-dot-offset));
+      background: #b589ff;
+      box-shadow: 0 0 0 5px rgba(167,123,255,.12), 0 0 18px rgba(167,123,255,.72);
+      pointer-events: none;
+      will-change: transform;
+    }
+
+    #megh-ai-toolkit .mat-dot {
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      display: grid;
+      place-items: center;
+      padding: 0;
+      border: 0;
+      outline: none;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    #megh-ai-toolkit .mat-dot::before {
+      content: "";
+      position: relative;
+      z-index: 2;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.35);
+      box-shadow: 0 0 0 0 rgba(167,123,255,0);
+      transition: width .25s ease, height .25s ease, background .25s ease, box-shadow .25s ease;
+    }
+
+    #megh-ai-toolkit .mat-dot[aria-current="true"]::before {
+      width: 4px;
+      height: 4px;
+      background: rgba(255,255,255,.55);
+      box-shadow: none;
+    }
+
+    #megh-ai-toolkit .mat-dot:focus-visible::before {
+      box-shadow: 0 0 0 5px rgba(56,217,220,.18), 0 0 16px rgba(56,217,220,.5);
+    }
+
+    #megh-ai-toolkit .mat-sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (max-width: 980px) {
+      #megh-ai-toolkit .mat-stage {
+        min-height: 680px;
+      }
+
+      #megh-ai-toolkit .mat-card {
+        width: clamp(125px, 17vw, 160px);
+      }
+
+      #megh-ai-toolkit .mat-copy {
+        width: min(350px, 38vw);
+      }
+
+      #megh-ai-toolkit .mat-title {
+        font-size: clamp(2.35rem, 5.4vw, 4rem);
+      }
+    }
+
+    @media (max-width: 720px) {
+      #megh-ai-toolkit {
+        height: 440svh;
+        min-height: 440svh;
+      }
+
+      #megh-ai-toolkit .mat-stage {
+        height: 100vh;
+        height: 100dvh;
+        min-height: 100dvh;
+      }
+
+      #megh-ai-toolkit .mat-brand {
+        top: max(18px, env(safe-area-inset-top));
+        left: 20px;
+      }
+
+      #megh-ai-toolkit .mat-brandline {
+        max-width: 260px;
+        margin-top: 0;
+        color: #cbc7d7;
+        font-size: .62rem;
+      }
+
+      #megh-ai-toolkit .mat-scene {
+        top: max(52px, env(safe-area-inset-top));
+        bottom: auto;
+        height: 46%;
+        perspective: 850px;
+        perspective-origin: 50% 46%;
+      }
+
+      #megh-ai-toolkit .mat-card {
+        width: clamp(118px, 32vw, 154px);
+        border-radius: 12px;
+        padding: 14px 8px;
+        gap: 8px;
+      }
+
+      #megh-ai-toolkit .mat-card:nth-child(1) { --mat-x: 24% !important; --mat-y: 56% !important; }
+      #megh-ai-toolkit .mat-card:nth-child(2) { --mat-x: 53% !important; --mat-y: 32% !important; }
+      #megh-ai-toolkit .mat-card:nth-child(3) { --mat-x: 79% !important; --mat-y: 57% !important; }
+      #megh-ai-toolkit .mat-card:nth-child(4) { --mat-x: 54% !important; --mat-y: 78% !important; }
+
+      #megh-ai-toolkit .mat-logo-wrap {
+        width: 46px;
+        height: 46px;
+      }
+
+      #megh-ai-toolkit .mat-tool-name {
+        font-size: clamp(.76rem, 3.2vw, .95rem);
+      }
+
+      #megh-ai-toolkit .mat-tool-role {
+        margin-top: 7px;
+        font-size: clamp(.46rem, 1.8vw, .57rem);
+        line-height: 1.35;
+      }
+
+      #megh-ai-toolkit .mat-copy {
+        top: 48%;
+        right: 20px;
+        bottom: max(24px, env(safe-area-inset-bottom));
+        left: 20px;
+        display: flex;
+        width: auto;
+        max-height: none;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-block: clamp(8px, 1.5vh, 16px);
+      }
+
+      #megh-ai-toolkit .mat-copy > * {
+        flex: 0 0 auto;
+      }
+
+      #megh-ai-toolkit .mat-kicker {
+        margin-bottom: 12px;
+        font-size: .61rem;
+      }
+
+      #megh-ai-toolkit .mat-kicker::before {
+        flex-basis: 25px;
+      }
+
+      #megh-ai-toolkit .mat-title {
+        max-width: 350px;
+        font-size: clamp(2.1rem, 9.8vw, 3.05rem);
+        line-height: .97;
+      }
+
+      #megh-ai-toolkit .mat-description {
+        margin-top: 14px;
+        max-width: 340px;
+        font-size: clamp(.9rem, 4vw, 1rem);
+        line-height: 1.5;
+      }
+
+      #megh-ai-toolkit .mat-list {
+        margin-top: 14px;
+        max-width: 320px;
+        font-size: clamp(.58rem, 2.6vw, .68rem);
+        line-height: 1.55;
+      }
+
+      #megh-ai-toolkit .mat-rail {
+        display: none;
+      }
+
+      #megh-ai-toolkit .mat-scroll-label {
+        display: none;
+      }
+
+      #megh-ai-toolkit .mat-dots {
+        display: none;
+      }
+    }
+
+    @media (max-width: 720px) and (max-height: 700px) {
+      #megh-ai-toolkit .mat-scene { top: 42px; height: 42%; }
+      #megh-ai-toolkit .mat-card { width: clamp(98px, 28vw, 126px); padding: 12px 7px; }
+      #megh-ai-toolkit .mat-logo-wrap { width: 39px; height: 39px; }
+      #megh-ai-toolkit .mat-copy { top: 46%; bottom: 14px; }
+      #megh-ai-toolkit .mat-title { font-size: clamp(1.75rem, 8.6vw, 2.45rem); }
+      #megh-ai-toolkit .mat-description { margin-top: 10px; font-size: .82rem; }
+      #megh-ai-toolkit .mat-list { margin-top: 9px; font-size: .54rem; }
+    }
+
+    @media (max-width: 720px) and (min-height: 800px) {
+      #megh-ai-toolkit .mat-scene { height: 47%; }
+      #megh-ai-toolkit .mat-copy { top: 48%; bottom: max(14px, env(safe-area-inset-bottom)); }
+      #megh-ai-toolkit .mat-title { font-size: clamp(2.25rem, 10.2vw, 3.2rem); }
+      #megh-ai-toolkit .mat-description { font-size: clamp(.94rem, 4vw, 1.06rem); }
+    }
+
+    @media (max-height: 700px) and (min-width: 721px) {
+      #megh-ai-toolkit .mat-copy {
+        bottom: 45px;
+      }
+
+      #megh-ai-toolkit .mat-title {
+        font-size: clamp(2.5rem, 4vw, 4rem);
+      }
+
+      #megh-ai-toolkit .mat-description {
+        margin-top: 14px;
+      }
+
+      #megh-ai-toolkit .mat-list {
+        margin-top: 17px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #megh-ai-toolkit .mat-group,
+      #megh-ai-toolkit .mat-copy,
+      #megh-ai-toolkit .mat-card,
+      #megh-ai-toolkit .mat-dot::before {
+        transition: none !important;
+      }
+    }
+  </style>
+
+  <div class="mat-stage">
+    <header class="mat-brand">
+      <span class="mat-brandline">AI Toolkit and Visual Archives</span>
+    </header>
+
+    <div class="mat-scene" aria-live="polite"></div>
+    <div class="mat-copy-layer"></div>
+
+    <nav class="mat-dots" aria-label="AI toolkit categories"></nav>
+
+    <div class="mat-rail" aria-hidden="true">
+      <span class="mat-rail-line"></span>
+      <span class="mat-scroll-label">Scroll to explore</span>
+    </div>
+
+    <p class="mat-sr-only mat-announcer" aria-live="polite"></p>
+  </div>
+
+  <script>
+    (() => {
+      const root = document.getElementById('megh-ai-toolkit');
+      if (!root || root.dataset.ready === 'true') return;
+      root.dataset.ready = 'true';
+
+      // Vector brand marks stay sharp at every screen density. If a mark is not
+      // available in the vector set, the official domain icon is used instead.
+      const svg = (slug, color = 'ffffff') => `https://cdn.simpleicons.org/${slug}/${color.replace('#', '')}`;
+      const favicon = (domain) => `https://www.google.com/s2/favicons?domain_url=https://${domain}&sz=256`;
+
+      const hdLogos = {
+        "openai": "../assets/8f281b924400eb1a16b9.svg",
+        "claude": "../assets/a3101f3047a119aa1182.svg",
+        "gemini": "../assets/60d463689e51da195f37.svg",
+        "perplexity": "../assets/7415fa92c9d31ca2f0cf.svg",
+        "google": "../assets/4e6aa8892ef15a6b431f.svg",
+        "elevenlabs": "../assets/f332a5afb7cf51a57cd6.svg",
+        "antigravity": "../assets/652128cf55a28bb95856.svg",
+        "lovable": "../assets/ab3b36b92ef69561b00f.svg",
+        "n8n": "../assets/057fc9acfc04cecffd8c.svg",
+        "manus": "../assets/2640cfb1f1f55a7cd452.svg",
+        "figma": "../assets/526eea0bdd16f60ca925.svg",
+        "canva": "../assets/157735c6d7a96544b9eb.svg",
+        "usenotch": "../assets/ea8462a7f66f739998c1.svg",
+        "mulerun": "../assets/37fb0a6e5473777568d4.webp",
+        "gamma": "../assets/0de2ad76f141efb7eeb6.webp",
+        "napkin": "../assets/ca4809edf08a6fd1868e.svg"
+      };
+      const hdLogo = (name) => hdLogos[name];
+
+      const groups = [
+        {
+          title: 'AI Strategy<br>&amp; Research',
+          plainTitle: 'AI Strategy & Research',
+          description: 'Research, reasoning and ideation tools<br>I use to explore ideas, refine thinking<br>and structure marketing decisions.',
+          items: [
+            ['ChatGPT', 'Ideation &<br>Analysis', hdLogo('openai'), favicon('openai.com'), '#10a37f'],
+            ['Claude', 'Reasoning &<br>Writing', hdLogo('claude'), favicon('claude.ai'), '#d97757'],
+            ['Gemini', 'Research &<br>Multimodal', hdLogo('gemini'), favicon('gemini.google.com'), '#6e8cff'],
+            ['Perplexity', 'Search &<br>Research', hdLogo('perplexity'), favicon('perplexity.ai'), '#20b8b0']
+          ]
+        },
+        {
+          title: 'Marketing Intelligence<br>&amp; Ad Optimization',
+          plainTitle: 'Marketing Intelligence & Ad Optimization',
+          description: 'Intelligence, analysis and optimization<br>tools I use to improve performance<br>marketing decisions.',
+          items: [
+            ['Adamigo', 'Ad Strategy &<br>Insights', favicon('adamigo.ai'), favicon('adamigo.ai'), '#b8ff5c'],
+            ['SuperScale', 'Growth &<br>Optimization', favicon('superscale.ai'), favicon('superscale.ai'), '#ff718d'],
+            ['Jasper', 'Marketing &<br>Content', svg('jasper'), favicon('jasper.ai'), '#ff5b49'],
+            ['NotebookLM', 'Source &<br>Intelligence', hdLogo('google'), favicon('notebooklm.google.com'), '#7aa9ff']
+          ]
+        },
+        {
+          title: 'AI Creative<br>&amp; Video Generation',
+          plainTitle: 'AI Creative & Video Generation',
+          description: 'Visual generation, experimentation<br>and production tools for campaign<br>creative and content.',
+          items: [
+            ['Google Flow', 'Film &<br>Generation', favicon('labs.google'), favicon('labs.google'), '#4c8dff'],
+            ['Seedance', 'Video &<br>Motion', favicon('seed.bytedance.com'), favicon('seed.bytedance.com'), '#c577ff'],
+            ['AKOOL', 'Avatar &<br>Video', favicon('akool.com'), favicon('akool.com'), '#5b7cff'],
+            ['UseNotch', 'Creative &<br>Production', hdLogo('usenotch'), favicon('usenotch.com'), '#fd8e4d']
+          ]
+        },
+        {
+          title: 'AI Voice<br>&amp; Content Production',
+          plainTitle: 'AI Voice & Content Production',
+          description: 'Voice, content and editing tools<br>for faster creative production<br>and execution.',
+          items: [
+            ['ElevenLabs', 'Voice &<br>Audio', hdLogo('elevenlabs'), favicon('elevenlabs.io'), '#f4f4f4'],
+            ['Sarvam AI', 'Indic Voice &<br>Language', favicon('sarvam.ai'), favicon('sarvam.ai'), '#ff8c55'],
+            ['Gling', 'Video &<br>Editing', favicon('gling.ai'), favicon('gling.ai'), '#9b82ff'],
+            ['Design Arena', 'Design &<br>Comparison', favicon('designarena.ai'), favicon('designarena.ai'), '#51d9c7']
+          ]
+        },
+        {
+          title: 'AI Websites<br>&amp; Landing Pages',
+          plainTitle: 'AI Websites & Landing Pages',
+          description: 'Rapid prototyping and building tools<br>for websites, interfaces and<br>campaign experiences.',
+          items: [
+            ['Antigravity', 'Agentic &<br>Development', hdLogo('antigravity'), favicon('antigravity.google'), '#ff5f68'],
+            ['Lovable', 'Apps &<br>Websites', hdLogo('lovable'), favicon('lovable.dev'), '#ff5d8f'],
+            ['Codex', 'Code &<br>Building', hdLogo('openai'), favicon('openai.com'), '#10a37f'],
+            ['Stitch', 'UI &<br>Prototyping', favicon('stitch.withgoogle.com'), favicon('stitch.withgoogle.com'), '#6ba5ff']
+          ]
+        },
+        {
+          title: 'AI Automation<br>&amp; Agents',
+          plainTitle: 'AI Automation & Agents',
+          description: 'Automation and agent-based tools<br>that connect workflows and support<br>faster execution.',
+          items: [
+            ['n8n', 'Workflow &<br>Automation', hdLogo('n8n'), favicon('n8n.io'), '#ff6d5a'],
+            ['Pabbly Connect', 'Apps &<br>Integration', favicon('pabbly.com'), favicon('pabbly.com'), '#5ab7ff'],
+            ['Manus', 'Autonomous &<br>Agents', hdLogo('manus'), favicon('manus.im'), '#f1f1f1'],
+            ['MuleRun', 'Agents &<br>Operations', hdLogo('mulerun'), favicon('mulerun.com'), '#52d7a4']
+          ]
+        },
+        {
+          title: 'SEO &amp; Search<br>Intelligence',
+          plainTitle: 'SEO & Search Intelligence',
+          description: 'Search visibility, technical analysis<br>and competitive insight tools for<br>stronger organic performance.',
+          items: [
+            ['Surfer', 'Content &<br>SEO', favicon('surferseo.com'), favicon('surferseo.com'), '#67d8b0'],
+            ['Ubersuggest', 'Keywords &<br>Competition', favicon('app.neilpatel.com'), favicon('ubersuggest.com'), '#ff9e4f'],
+            ['Screaming Frog', 'Technical &<br>Audits', favicon('screamingfrog.co.uk'), favicon('screamingfrog.co.uk'), '#63cf65'],
+            ['Local Falcon', 'Local &<br>Rankings', favicon('localfalcon.com'), favicon('localfalcon.com'), '#ff625f']
+          ]
+        },
+        {
+          title: 'AI Design &amp;<br>Visual Systems',
+          plainTitle: 'AI Design & Visual Systems',
+          description: 'Design, presentation and visual thinking<br>tools I use to shape ideas into polished<br>communication assets.',
+          items: [
+            ['Figma AI', 'Design & UI', hdLogo('figma'), favicon('figma.com'), '#52c8a9'],
+            ['Gamma', 'Presentations &<br>Docs', hdLogo('gamma'), favicon('gamma.app'), '#f98560'],
+            ['Canva AI', 'Design &<br>Social Creative', hdLogo('canva'), favicon('canva.com'), '#89aeff'],
+            ['Napkin', 'Diagrams &<br>Visual Thinking', hdLogo('napkin'), favicon('napkin.ai'), '#57c9a5']
+          ]
+        }
+      ];
+
+      const positions = [
+        ['39%', '51%', '-24px', '-2.5deg', '180deg'],
+        ['58%', '31%', '34px', '2.1deg', '-90deg'],
+        ['76%', '52%', '-5px', '-1.3deg', '0deg'],
+        ['59%', '72%', '58px', '1.4deg', '90deg']
+      ];
+
+      const scene = root.querySelector('.mat-scene');
+      const copyLayer = root.querySelector('.mat-copy-layer');
+      const dots = root.querySelector('.mat-dots');
+      const announcer = root.querySelector('.mat-announcer');
+
+      const makeCard = (item, index) => {
+        const [name, role, source, fallback, accent] = item;
+        const card = document.createElement('article');
+        const [x, y, z, rot, tilt] = positions[index];
+        card.className = 'mat-card';
+        card.style.cssText = `--mat-x:${x};--mat-y:${y};--mat-z:${z};--mat-rot:${rot};--mat-tilt:${tilt};--mat-accent:${accent}`;
+        card.innerHTML = `
+          <div class="mat-logo-wrap">
+            <img class="mat-logo" src="${source}" data-fallback="${fallback}" alt="${name} official logo" loading="eager" decoding="async">
+          </div>
+          <div class="mat-card-copy">
+            <h3 class="mat-tool-name">${name}</h3>
+            <p class="mat-tool-role">${role}</p>
+          </div>`;
+
+        const img = card.querySelector('img');
+        img.addEventListener('error', () => {
+          if (img.src !== img.dataset.fallback && img.dataset.fallback) {
+            img.src = img.dataset.fallback;
+            return;
+          }
+          img.remove();
+          const mark = document.createElement('span');
+          mark.textContent = name.split(/\s+/).map(word => word[0]).join('').slice(0, 3).toUpperCase();
+          mark.setAttribute('aria-hidden', 'true');
+          mark.style.cssText = `font:700 1.5rem/1 ui-monospace,monospace;color:${accent};letter-spacing:-.06em`;
+          card.querySelector('.mat-logo-wrap').append(mark);
+        });
+        return card;
+      };
+
+      groups.forEach((group, groupIndex) => {
+        const groupEl = document.createElement('div');
+        groupEl.className = 'mat-group';
+        groupEl.dataset.index = groupIndex;
+        groupEl.setAttribute('aria-hidden', groupIndex === 0 ? 'false' : 'true');
+        group.items.forEach((item, index) => groupEl.appendChild(makeCard(item, index)));
+        scene.appendChild(groupEl);
+
+        const copy = document.createElement('article');
+        copy.className = 'mat-copy';
+        copy.dataset.index = groupIndex;
+        copy.setAttribute('aria-hidden', groupIndex === 0 ? 'false' : 'true');
+        copy.innerHTML = `
+          <p class="mat-kicker">${String(groupIndex + 1).padStart(2, '0')} / 08</p>
+          <h2 class="mat-title">${group.title}</h2>
+          <p class="mat-description">${group.description}</p>
+          <p class="mat-list">${group.items.map(item => `<span>${item[0]}</span>`).join('')}</p>`;
+        copyLayer.appendChild(copy);
+
+        const dot = document.createElement('button');
+        dot.className = 'mat-dot';
+        dot.type = 'button';
+        dot.dataset.index = groupIndex;
+        dot.setAttribute('aria-label', `View ${String(groupIndex + 1).padStart(2, '0')} of 08: ${group.plainTitle}`);
+        dot.setAttribute('aria-current', groupIndex === 0 ? 'true' : 'false');
+        dots.appendChild(dot);
+      });
+
+      const groupEls = [...root.querySelectorAll('.mat-group')];
+      const groupCards = groupEls.map(group => [...group.querySelectorAll('.mat-card')]);
+      const copyEls = [...root.querySelectorAll('.mat-copy')];
+      const dotEls = [...root.querySelectorAll('.mat-dot')];
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const LAYER_GAP = 2100;
+      const VISIBLE_DEPTH = LAYER_GAP;
+      // Logo cards contain typography, so they fade before reaching the CSS
+      // perspective plane. This preserves the reference fly-through without
+      // allowing enlarged card labels to cover the interface edges.
+      const EXIT_POINT = 700;
+      const SCROLL_SPEED = 2;
+      const FOLLOW_RATE = 11.5;
+      const MAX_SCROLL = (groups.length - 1) * LAYER_GAP;
+
+      let activeIndex = -1;
+      let targetScroll = 0;
+      let currentScroll = 0;
+      let wheelSnapTimer = 0;
+      let gestureStartScroll = 0;
+      let wheelDirection = 0;
+      let wheelGestureOpen = false;
+      let animationFrame = 0;
+      let lastFrameTime = 0;
+      let pointerX = 0;
+      let pointerY = 0;
+
+      const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+
+      const sectionHasControl = () => {
+        const rect = root.getBoundingClientRect();
+        const viewportMiddle = window.innerHeight * .5;
+        return rect.top <= viewportMiddle && rect.bottom >= viewportMiddle;
+      };
+
+      const calculateOpacity = (z) => {
+        if (z > EXIT_POINT) return 0;
+        if (z > 0) return clamp(1 - z / EXIT_POINT, 0, 1);
+        if (z > -VISIBLE_DEPTH) {
+          const progress = Math.abs(z) / VISIBLE_DEPTH;
+          return clamp(1 - progress * progress, 0, 1);
+        }
+        return 0;
+      };
+
+      const requestUpdate = () => {
+        if (animationFrame) return;
+        animationFrame = requestAnimationFrame(update);
+      };
+
+      const finishWheelGesture = () => {
+        const moved = Math.abs(targetScroll - gestureStartScroll);
+        // Treat every deliberate wheel/trackpad gesture as a section change.
+        // The former large threshold made short trackpad gestures appear dead.
+        if (moved < 4) {
+          targetScroll = Math.round(gestureStartScroll / LAYER_GAP) * LAYER_GAP;
+        } else {
+          const rawIndex = targetScroll / LAYER_GAP;
+          const destination = wheelDirection > 0 ? Math.ceil(rawIndex) : Math.floor(rawIndex);
+          targetScroll = clamp(destination * LAYER_GAP, 0, MAX_SCROLL);
+        }
+        wheelGestureOpen = false;
+        requestUpdate();
+      };
+
+      const update = (frameTime) => {
+        animationFrame = 0;
+        const deltaSeconds = lastFrameTime
+          ? clamp((frameTime - lastFrameTime) / 1000, 1 / 240, .05)
+          : 1 / 60;
+        lastFrameTime = frameTime;
+        const follow = reducedMotion ? 1 : 1 - Math.exp(-FOLLOW_RATE * deltaSeconds);
+        currentScroll += (targetScroll - currentScroll) * follow;
+        if (Math.abs(targetScroll - currentScroll) < .08) currentScroll = targetScroll;
+
+        const progress = clamp(currentScroll / MAX_SCROLL, 0, 1);
+        const tunnelPosition = currentScroll / LAYER_GAP;
+        const nextActive = clamp(Math.round(tunnelPosition), 0, groups.length - 1);
+        root.style.setProperty('--mat-progress', progress.toFixed(4));
+        const dotStep = window.innerWidth <= 720 ? 36 : 30;
+        dots.style.setProperty('--mat-dot-offset', `${(progress * (groups.length - 1) * dotStep).toFixed(2)}px`);
+
+        groupEls.forEach((element, index) => {
+          // One signed depth track drives both directions. Decreasing the
+          // scroll value now retraces the exact transform path used on entry.
+          const z = currentScroll - index * LAYER_GAP;
+          const opacity = calculateOpacity(z);
+          element.style.opacity = opacity.toFixed(3);
+          element.style.visibility = opacity <= .002 ? 'hidden' : 'visible';
+          element.style.transform = Math.abs(z) < .08 ? 'none' : `translate3d(0, 0, ${z.toFixed(2)}px)`;
+
+          // Deformation is derived from depth instead of wheel direction, so
+          // reverse scrolling is a genuine rewind. Portrait cards above and
+          // below the centre use a lower factor to avoid vertical rubber-banding.
+          const depthPhase = z >= 0
+            ? clamp(z / EXIT_POINT, 0, 1)
+            : clamp(Math.abs(z) / LAYER_GAP, 0, 1);
+          const depthEnergy = reducedMotion ? 0 : Math.sin(depthPhase * Math.PI);
+          groupCards[index].forEach((card, cardIndex) => {
+            const verticalCard = cardIndex === 1 || cardIndex === 3;
+            const deform = depthEnergy * (verticalCard ? .055 : .12);
+            card.style.setProperty('--mat-stretch', (1 + deform).toFixed(4));
+            card.style.setProperty('--mat-squash', (1 - deform * .34).toFixed(4));
+            const pointerDepth = 1 + cardIndex * .08;
+            card.style.setProperty('--mat-rx', `${(-pointerY * 4 * pointerDepth).toFixed(2)}deg`);
+            card.style.setProperty('--mat-ry', `${(pointerX * 5 * pointerDepth).toFixed(2)}deg`);
+            card.style.setProperty('--mat-float', '0px');
+          });
+        });
+
+        copyEls.forEach((element, index) => {
+          const delta = index - tunnelPosition;
+          const distance = Math.abs(delta);
+          // Keep one copy block readable at a time, but hold enough opacity at
+          // the midpoint to prevent a blank flash between categories.
+          const rawOpacity = index === nextActive ? clamp(1 - distance / .78, 0, 1) : 0;
+          const opacity = rawOpacity * rawOpacity * (3 - 2 * rawOpacity);
+          element.style.opacity = opacity.toFixed(3);
+          element.style.visibility = opacity <= .002 ? 'hidden' : 'visible';
+          element.style.transform = distance < .0001 || reducedMotion
+            ? 'none'
+            : `translateY(${(delta * 18).toFixed(1)}px)`;
+        });
+
+        if (nextActive !== activeIndex) {
+          activeIndex = nextActive;
+          groupEls.forEach((element, index) => {
+            const current = index === activeIndex;
+            element.classList.toggle('mat-active', current);
+            element.setAttribute('aria-hidden', current ? 'false' : 'true');
+          });
+          copyEls.forEach((element, index) => {
+            const current = index === activeIndex;
+            element.classList.toggle('mat-active', current);
+            element.setAttribute('aria-hidden', current ? 'false' : 'true');
+          });
+          dotEls.forEach((dot, index) => dot.setAttribute('aria-current', index === activeIndex ? 'true' : 'false'));
+          announcer.textContent = `${String(activeIndex + 1).padStart(2, '0')} of 08 — ${groups[activeIndex].plainTitle}`;
+        }
+
+        if (currentScroll !== targetScroll) {
+          animationFrame = requestAnimationFrame(update);
+        } else {
+          lastFrameTime = 0;
+        }
+      };
+
+      const goTo = (index) => {
+        const destination = clamp(index, 0, groups.length - 1) * LAYER_GAP;
+        targetScroll = destination;
+        const sectionTop = window.scrollY + root.getBoundingClientRect().top;
+        const scrollRange = Math.max(root.offsetHeight - window.innerHeight, 1);
+        window.scrollTo({
+          top: sectionTop + scrollRange * (destination / MAX_SCROLL),
+          behavior: reducedMotion ? 'auto' : 'smooth'
+        });
+        requestUpdate();
+      };
+
+      const syncToPageScroll = () => {
+        const sectionTop = window.scrollY + root.getBoundingClientRect().top;
+        const scrollRange = Math.max(root.offsetHeight - window.innerHeight, 1);
+        const pageProgress = clamp((window.scrollY - sectionTop) / scrollRange, 0, 1);
+        targetScroll = pageProgress * MAX_SCROLL;
+        requestUpdate();
+      };
+
+      dotEls.forEach(dot => dot.addEventListener('click', () => goTo(Number(dot.dataset.index))));
+
+      const onWheel = (event) => {
+        if (event.ctrlKey || !sectionHasControl()) return;
+
+        let delta = event.deltaY;
+        if (event.deltaMode === 1) delta *= 16;
+        if (event.deltaMode === 2) delta *= window.innerHeight;
+        delta = clamp(delta, -180, 180);
+        if (!delta) return;
+
+        const direction = Math.sign(delta);
+        const atStart = targetScroll <= 0 && currentScroll < 4 && direction < 0;
+        const atEnd = targetScroll >= MAX_SCROLL && currentScroll > MAX_SCROLL - 4 && direction > 0;
+        if (atStart || atEnd) return;
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        if (!wheelGestureOpen) {
+          gestureStartScroll = targetScroll;
+          wheelGestureOpen = true;
+        } else if (direction !== wheelDirection) {
+          // Trackpad reversals can arrive before the idle timer closes the
+          // previous gesture. Start a fresh snap calculation immediately.
+          gestureStartScroll = targetScroll;
+        }
+        wheelDirection = direction;
+        targetScroll = clamp(targetScroll + delta * SCROLL_SPEED, 0, MAX_SCROLL);
+
+        window.clearTimeout(wheelSnapTimer);
+        wheelSnapTimer = window.setTimeout(finishWheelGesture, 110);
+        requestUpdate();
+      };
+
+      /* Native page scrolling drives the complete sequence on desktop and mobile.
+         This keeps the stage pinned until all eight groups have been visited,
+         without blocking trackpads or touch scrolling. */
+      window.addEventListener('scroll', syncToPageScroll, { passive: true });
+
+      root.addEventListener('keydown', (event) => {
+        if (!['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp'].includes(event.key)) return;
+        const direction = event.key === 'ArrowDown' || event.key === 'PageDown' ? 1 : -1;
+        const currentIndex = Math.round(targetScroll / LAYER_GAP);
+        const next = clamp(currentIndex + direction, 0, groups.length - 1);
+        if (next === currentIndex) return;
+        event.preventDefault();
+        goTo(next);
+      });
+
+      root.addEventListener('pointermove', (event) => {
+        const rect = root.querySelector('.mat-stage').getBoundingClientRect();
+        pointerX = clamp((event.clientX - rect.left) / rect.width * 2 - 1, -1, 1);
+        pointerY = clamp((event.clientY - rect.top) / rect.height * 2 - 1, -1, 1);
+        requestUpdate();
+      }, { passive: true });
+
+      root.addEventListener('pointerleave', () => {
+        pointerX = 0;
+        pointerY = 0;
+        requestUpdate();
+      }, { passive: true });
+
+      window.addEventListener('resize', syncToPageScroll, { passive: true });
+      syncToPageScroll();
+    })();
+  </script>
+</section>
+
+</body>
+</html>

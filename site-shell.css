@@ -1,0 +1,224 @@
+:root {
+  color-scheme: dark;
+  background: #030305;
+  scroll-behavior: smooth;
+  --site-font-display: "Outfit", system-ui, sans-serif;
+  --site-font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --site-bg: #030305;
+  --site-surface: #0b0b0f;
+  --site-surface-raised: #14141a;
+  --site-text: #f7f7fa;
+  --site-muted: #a7a7b2;
+  --site-subtle: #777783;
+  --site-accent: #7a4cff;
+  --site-accent-hover: #8f6bff;
+  --site-accent-soft: rgba(122, 76, 255, 0.16);
+  --site-border: rgba(255, 255, 255, 0.14);
+  --site-focus: #b8a3ff;
+  --site-container: 1200px;
+  --site-gutter: clamp(24px, 4vw, 64px);
+  --site-section-space: clamp(96px, 9vw, 144px);
+  --site-card-radius: 20px;
+  --site-card-padding: 28px;
+  --site-control-height: 50px;
+  --site-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --site-control-duration: 220ms;
+}
+
+html,
+body {
+  inline-size: 100%;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0;
+  overflow-x: hidden;
+  overflow-x: clip;
+  background: #030305;
+}
+
+body {
+  position: relative;
+  contain: inline-size;
+  min-height: 100vh;
+  color: var(--site-text);
+  font-family: var(--site-font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: none !important;
+}
+
+.site-skip-link {
+  position: fixed;
+  z-index: 2147483647;
+  top: 12px;
+  left: 12px;
+  padding: 10px 14px;
+  color: #fff;
+  background: #633cff;
+  border-radius: 999px;
+  font: 600 14px/1 system-ui, sans-serif;
+  text-decoration: none;
+  transform: translateY(-150%);
+  transition: transform 160ms ease;
+}
+
+.site-skip-link:focus {
+  transform: translateY(0);
+}
+
+.portfolio-segment {
+  position: relative;
+  inline-size: 100%;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  scroll-margin-top: 72px;
+}
+
+#site-content {
+  inline-size: 100%;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+#site-content,
+#site-content > .portfolio-segment,
+#site-content > .portfolio-segment > :where(section, main, div) {
+  max-inline-size: 100%;
+  min-inline-size: 0;
+}
+
+.portfolio-segment :where(img, video, canvas) {
+  max-inline-size: 100%;
+}
+
+.portfolio-segment :where(h1, h2, h3, h4, h5, h6),
+.portfolio-segment :where(.ms-hero__title, .emj-hero h2, .emj-card h3, .emj-closing h2, .megh-atlas__company h3, .pmc-title, .mat-name, .mat-title, .mso-heading, .mso-index-heading, .gf-faq__title, .ms-brand__name, .ms-title, .pm-final-headline) {
+  font-family: var(--site-font-display) !important;
+}
+
+.portfolio-segment :where(p, li, a, button, time, span, input, textarea),
+.portfolio-segment :where(.mat-brandline, .mat-kicker, .mat-list, .mat-scroll-label, .mso, .ms-contact) {
+  font-family: var(--site-font-body) !important;
+}
+
+.portfolio-segment :where(a, button, [tabindex]):focus-visible {
+  outline: 3px solid var(--site-focus) !important;
+  outline-offset: 3px !important;
+}
+
+/* Section 00 becomes a genuine loader over section 01, not an extra page. */
+.portfolio-segment--preloader {
+  position: fixed;
+  z-index: 20000;
+  inset: 0;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 0;
+  pointer-events: none;
+}
+
+.portfolio-segment--preloader #mjp-hero-section {
+  position: absolute !important;
+  inset: 0;
+  min-height: 0 !important;
+  height: 100%;
+  background: transparent !important;
+}
+
+.portfolio-segment--preloader .mjp-overlay {
+  position: absolute;
+}
+
+.portfolio-segment--preloader.is-complete {
+  display: none;
+}
+
+/* Contain the platform section's formerly page-fixed ambient artwork. */
+.portfolio-segment--platforms {
+  overflow: hidden;
+  background: #0b0a1a;
+  font-family: var(--site-font-body);
+}
+
+.portfolio-segment--platforms .ambient-tr,
+.portfolio-segment--platforms .ambient-bl {
+  position: absolute !important;
+}
+
+.portfolio-segment--platforms > main {
+  min-height: 100svh;
+}
+
+/* Keep the page-level liquid visible without intercepting any interaction. */
+.fluid-cursor-canvas {
+  position: fixed;
+  z-index: 15000;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  pointer-events: none;
+  touch-action: none;
+}
+
+@media (max-width: 720px) {
+  :root {
+    --site-gutter: 20px;
+    --site-section-space: 72px;
+    --site-card-radius: 16px;
+    --site-card-padding: 20px;
+    --site-control-height: 52px;
+  }
+
+  .portfolio-segment {
+    inline-size: 100% !important;
+    width: 100% !important;
+    max-inline-size: 100% !important;
+    max-width: 100% !important;
+    min-inline-size: 0 !important;
+    min-width: 0 !important;
+    margin-inline: 0 !important;
+    scroll-margin-top: 64px;
+  }
+
+  html,
+  body,
+  #site-content {
+    inline-size: 100% !important;
+    width: 100% !important;
+    max-inline-size: 100% !important;
+    max-width: 100% !important;
+    min-inline-size: 0 !important;
+    min-width: 0 !important;
+    margin-inline: 0 !important;
+  }
+
+  .portfolio-segment--preloader,
+  .portfolio-segment--preloader #mjp-hero-section {
+    inset-inline: 0 !important;
+    inline-size: 100% !important;
+    width: 100% !important;
+    max-inline-size: 100% !important;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { scroll-behavior: auto; }
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
